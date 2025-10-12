@@ -1,2 +1,2 @@
-# Netlify redirects for static files
-/images/* /images/:splat 200
+# Netlify redirects for SPA
+/*    /index.html   200
