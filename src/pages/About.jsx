@@ -25,10 +25,10 @@ const About = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen pt-12">
       {/* Hero Section */}
       <section
-        className="py-32 relative overflow-hidden animate-on-scroll"
+        className="min-h-screen flex items-center relative overflow-hidden animate-on-scroll"
         id="hero"
         style={{ backgroundColor: "#212121" }}
       >
@@ -89,7 +89,7 @@ const About = () => {
               </span>
             </div>
             <h1
-              className={`text-5xl md:text-7xl font-bold mb-6 text-white transition-all duration-1000 delay-200 ${
+              className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-white transition-all duration-1000 delay-200 ${
                 isVisible.hero
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-10"
@@ -98,7 +98,7 @@ const About = () => {
               About <span style={{ color: "#FF7E21" }}>Cazera Society</span>
             </h1>
             <p
-              className={`text-xl md:text-2xl mb-8 max-w-3xl mx-auto transition-all duration-1000 delay-400 ${
+              className={`text-lg md:text-xl mb-8 max-w-3xl mx-auto transition-all duration-1000 delay-400 ${
                 isVisible.hero
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-10"
@@ -255,46 +255,62 @@ const About = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="bg-gray-800 p-8 rounded-xl shadow-lg text-center hover:shadow-xl transition-shadow duration-300">
               <div className="w-24 h-24 bg-orange-500 rounded-full mx-auto mb-6 flex items-center justify-center">
-                <span className="text-white text-2xl font-bold">JD</span>
+                <span className="text-white text-2xl font-bold">BD</span>
               </div>
               <h3 className="text-xl font-semibold text-white mb-2">
-                John Doe
+                Bagas Dwi Permana
               </h3>
-              <p className="text-orange-400 mb-4">Founder & CEO</p>
+              <p className="text-orange-400 mb-4">Founder & Owner (Kazandra)</p>
               <p className="text-gray-300 text-sm">
-                Visionary leader dengan pengalaman 10+ tahun di industri
-                teknologi dan komunitas.
+                Founder Cazera Society yang membuat website ini dan Discord
+                community. Visionary leader yang mengajak teman-teman untuk
+                membangun komunitas gaming yang asik!
               </p>
             </div>
 
             <div className="bg-gray-800 p-8 rounded-xl shadow-lg text-center hover:shadow-xl transition-shadow duration-300">
               <div className="w-24 h-24 bg-orange-500 rounded-full mx-auto mb-6 flex items-center justify-center">
-                <span className="text-white text-2xl font-bold">JS</span>
+                <span className="text-white text-2xl font-bold">AB</span>
               </div>
-              <h3 className="text-xl font-semibold text-white mb-2">
-                Jane Smith
-              </h3>
-              <p className="text-orange-400 mb-4">Community Manager</p>
+              <h3 className="text-xl font-semibold text-white mb-2">Abidzar</h3>
+              <p className="text-orange-400 mb-4">
+                Admin & Community Manager (Chris)
+              </p>
               <p className="text-gray-300 text-sm">
-                Ahli dalam membangun dan mengelola komunitas online yang
-                engaging dan produktif.
+                Teman dekat yang diajak untuk jadi admin komunitas. Ahli dalam
+                mengelola Discord server dan menjaga komunitas tetap aktif dan
+                seru!
               </p>
             </div>
 
             <div className="bg-gray-800 p-8 rounded-xl shadow-lg text-center hover:shadow-xl transition-shadow duration-300">
               <div className="w-24 h-24 bg-orange-500 rounded-full mx-auto mb-6 flex items-center justify-center">
-                <span className="text-white text-2xl font-bold">MJ</span>
+                <span className="text-white text-2xl font-bold">RE</span>
               </div>
-              <h3 className="text-xl font-semibold text-white mb-2">
-                Mike Johnson
-              </h3>
-              <p className="text-orange-400 mb-4">Tech Lead</p>
+              <h3 className="text-xl font-semibold text-white mb-2">Reza</h3>
+              <p className="text-orange-400 mb-4">
+                Media & Content Team (Malvin)
+              </p>
               <p className="text-gray-300 text-sm">
-                Developer berpengalaman yang memastikan platform kami selalu
-                up-to-date dan reliable.
+                Tim media konten yang membantu membuat konten menarik untuk
+                komunitas. Kreatif dalam membuat event dan konten yang seru
+                untuk member!
+              </p>
+            </div>
+
+            <div className="bg-gray-800 p-8 rounded-xl shadow-lg text-center hover:shadow-xl transition-shadow duration-300">
+              <div className="w-24 h-24 bg-orange-500 rounded-full mx-auto mb-6 flex items-center justify-center">
+                <span className="text-white text-2xl font-bold">SU</span>
+              </div>
+              <h3 className="text-xl font-semibold text-white mb-2">Sutan</h3>
+              <p className="text-orange-400 mb-4">Developer (Cuta)</p>
+              <p className="text-gray-300 text-sm">
+                Developer yang membantu mengembangkan fitur-fitur untuk
+                komunitas. Ahli dalam coding dan teknologi yang mendukung
+                platform Cazera Society!
               </p>
             </div>
           </div>

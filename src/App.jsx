@@ -6,17 +6,19 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Gallery from "./pages/Gallery";
+import Products from "./pages/Products";
 
 function App() {
   return (
     <Router>
-      <div className="min-h-screen" style={{ backgroundColor: "#FAFAFA" }}>
+      <div className="min-h-screen" style={{ backgroundColor: "#212121" }}>
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
+          <Route path="/products" element={<Products />} />
           <Route path="/gallery" element={<Gallery />} />
+          <Route path="/contact" element={<Contact />} />
         </Routes>
         <Footer />
       </div>

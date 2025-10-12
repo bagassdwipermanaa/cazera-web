@@ -38,19 +38,37 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log("Form submitted:", formData);
-    alert("Pesan berhasil dikirim! Kami akan menghubungi Anda segera.");
-    setFormData({ name: "", email: "", subject: "", message: "" });
+
+    try {
+      // Submit ke Netlify Forms
+      const response = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams({
+          "form-name": "contact",
+          ...formData,
+        }).toString(),
+      });
+
+      if (response.ok) {
+        alert("Pesan berhasil dikirim! Kami akan menghubungi Anda segera.");
+        setFormData({ name: "", email: "", subject: "", message: "" });
+      } else {
+        throw new Error("Network response was not ok");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      alert("Terjadi kesalahan saat mengirim pesan. Silakan coba lagi.");
+    }
   };
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen pt-12">
       {/* Hero Section */}
       <section
-        className="py-32 relative overflow-hidden animate-on-scroll"
+        className="min-h-screen flex items-center relative overflow-hidden animate-on-scroll"
         id="hero"
         style={{ backgroundColor: "#212121" }}
       >
@@ -111,7 +129,7 @@ const Contact = () => {
               </span>
             </div>
             <h1
-              className={`text-5xl md:text-7xl font-bold mb-6 text-white transition-all duration-1000 delay-200 ${
+              className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-white transition-all duration-1000 delay-200 ${
                 isVisible.hero
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-10"
@@ -120,7 +138,7 @@ const Contact = () => {
               Contact <span style={{ color: "#FF7E21" }}>Us</span>
             </h1>
             <p
-              className={`text-xl md:text-2xl mb-8 max-w-3xl mx-auto transition-all duration-1000 delay-400 ${
+              className={`text-lg md:text-xl mb-8 max-w-3xl mx-auto transition-all duration-1000 delay-400 ${
                 isVisible.hero
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-10"
@@ -135,24 +153,54 @@ const Contact = () => {
       </section>
 
       {/* Contact Form Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section
+        className="py-32 relative animate-on-scroll"
+        id="contact-form"
+        style={{ backgroundColor: "#212121" }}
+      >
+        {/* Animated Background */}
+        <div className="absolute inset-0">
+          <div className="absolute top-10 left-20 w-8 h-8 border-2 border-white transform rotate-45 opacity-20 animate-spin"></div>
+          <div className="absolute bottom-20 right-10 w-6 h-6 bg-white transform rotate-12 opacity-30 animate-pulse"></div>
+          <div className="absolute top-1/2 left-10 w-4 h-4 border border-white opacity-25 animate-bounce"></div>
+          <div
+            className="absolute top-20 right-1/4 w-12 h-12 rounded-full opacity-15 animate-pulse"
+            style={{ backgroundColor: "#FF7E21" }}
+          ></div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Form */}
             <div>
-              <h2 className="text-4xl font-bold text-black mb-6">
+              <h2 className="text-4xl font-bold text-white mb-6">
                 Send us a Message
               </h2>
-              <p className="text-lg text-gray-600 mb-8">
+              <p className="text-lg text-gray-300 mb-8">
                 Kami senang mendengar dari Anda. Kirimkan pesan dan kami akan
                 merespons dalam 24 jam.
               </p>
 
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form
+                name="contact"
+                method="POST"
+                data-netlify="true"
+                data-netlify-honeypot="bot-field"
+                onSubmit={handleSubmit}
+                className="space-y-6"
+              >
+                {/* Hidden field untuk Netlify */}
+                <input type="hidden" name="form-name" value="contact" />
+                <div style={{ display: "none" }}>
+                  <label>
+                    Don't fill this out if you're human:{" "}
+                    <input name="bot-field" />
+                  </label>
+                </div>
                 <div>
                   <label
                     htmlFor="name"
-                    className="block text-sm font-medium text-gray-700 mb-2"
+                    className="block text-sm font-medium text-gray-300 mb-2"
                   >
                     Full Name
                   </label>
@@ -163,7 +211,7 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent"
+                    className="w-full px-4 py-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent bg-gray-800 text-white placeholder-gray-400"
                     placeholder="Your full name"
                   />
                 </div>
@@ -171,7 +219,7 @@ const Contact = () => {
                 <div>
                   <label
                     htmlFor="email"
-                    className="block text-sm font-medium text-gray-700 mb-2"
+                    className="block text-sm font-medium text-gray-300 mb-2"
                   >
                     Email Address
                   </label>
@@ -182,7 +230,7 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent"
+                    className="w-full px-4 py-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent bg-gray-800 text-white placeholder-gray-400"
                     placeholder="your.email@example.com"
                   />
                 </div>
@@ -190,7 +238,7 @@ const Contact = () => {
                 <div>
                   <label
                     htmlFor="subject"
-                    className="block text-sm font-medium text-gray-700 mb-2"
+                    className="block text-sm font-medium text-gray-300 mb-2"
                   >
                     Subject
                   </label>
@@ -201,7 +249,7 @@ const Contact = () => {
                     value={formData.subject}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent"
+                    className="w-full px-4 py-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent bg-gray-800 text-white placeholder-gray-400"
                     placeholder="What's this about?"
                   />
                 </div>
@@ -209,7 +257,7 @@ const Contact = () => {
                 <div>
                   <label
                     htmlFor="message"
-                    className="block text-sm font-medium text-gray-700 mb-2"
+                    className="block text-sm font-medium text-gray-300 mb-2"
                   >
                     Message
                   </label>
@@ -220,7 +268,7 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     rows={6}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent"
+                    className="w-full px-4 py-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent bg-gray-800 text-white placeholder-gray-400"
                     placeholder="Tell us more about your inquiry..."
                   />
                 </div>
@@ -237,10 +285,10 @@ const Contact = () => {
 
             {/* Contact Information */}
             <div>
-              <h2 className="text-4xl font-bold text-black mb-6">
+              <h2 className="text-4xl font-bold text-white mb-6">
                 Get in Touch
               </h2>
-              <p className="text-lg text-gray-600 mb-8">
+              <p className="text-lg text-gray-300 mb-8">
                 Ada beberapa cara untuk terhubung dengan kami. Pilih yang paling
                 nyaman untuk Anda.
               </p>
@@ -248,7 +296,7 @@ const Contact = () => {
               <div className="space-y-8">
                 {/* Email */}
                 <div className="flex items-start">
-                  <div className="w-12 h-12 bg-gray-800 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                  <div className="w-12 h-12 bg-orange-500 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
                     <svg
                       className="w-6 h-6 text-white"
                       fill="none"
@@ -264,19 +312,19 @@ const Contact = () => {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-black mb-2">
+                    <h3 className="text-xl font-semibold text-white mb-2">
                       Email
                     </h3>
-                    <p className="text-gray-600 mb-1">
+                    <p className="text-gray-300 mb-1">
                       hello@cazerasociety.com
                     </p>
-                    <p className="text-gray-600">support@cazerasociety.com</p>
+                    <p className="text-gray-300">support@cazerasociety.com</p>
                   </div>
                 </div>
 
                 {/* Discord */}
                 <div className="flex items-start">
-                  <div className="w-12 h-12 bg-indigo-600 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                  <div className="w-12 h-12 bg-orange-500 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
                     <svg
                       className="w-6 h-6 text-white"
                       fill="currentColor"
@@ -286,17 +334,17 @@ const Contact = () => {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-black mb-2">
+                    <h3 className="text-xl font-semibold text-white mb-2">
                       Discord
                     </h3>
-                    <p className="text-gray-600 mb-1">
+                    <p className="text-gray-300 mb-1">
                       Join our Discord server
                     </p>
                     <a
                       href="https://discord.gg/mK26qvZXSY"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-gray-600 hover:text-black transition-colors duration-200"
+                      className="text-orange-400 hover:text-orange-300 transition-colors duration-200"
                     >
                       discord.gg/mK26qvZXSY
                     </a>
@@ -305,7 +353,7 @@ const Contact = () => {
 
                 {/* Social Media */}
                 <div className="flex items-start">
-                  <div className="w-12 h-12 bg-gray-800 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                  <div className="w-12 h-12 bg-orange-500 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
                     <svg
                       className="w-6 h-6 text-white"
                       fill="currentColor"
@@ -315,46 +363,46 @@ const Contact = () => {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-black mb-2">
+                    <h3 className="text-xl font-semibold text-white mb-2">
                       Social Media
                     </h3>
-                    <p className="text-gray-600 mb-1">
+                    <p className="text-gray-300 mb-1">
                       Follow us on social media
                     </p>
-                    <p className="text-gray-600">@cazerasociety</p>
+                    <p className="text-gray-300">@cazerasociety</p>
                   </div>
                 </div>
               </div>
 
               {/* FAQ Section */}
               <div className="mt-12">
-                <h3 className="text-2xl font-bold text-black mb-6">
+                <h3 className="text-2xl font-bold text-white mb-6">
                   Frequently Asked Questions
                 </h3>
                 <div className="space-y-4">
-                  <div className="border-l-4 border-black pl-4">
-                    <h4 className="font-semibold text-black mb-2">
+                  <div className="border-l-4 border-orange-500 pl-4">
+                    <h4 className="font-semibold text-white mb-2">
                       How do I join the community?
                     </h4>
-                    <p className="text-gray-600 text-sm">
+                    <p className="text-gray-300 text-sm">
                       You can join our Discord server or fill out the contact
                       form above. We'll get back to you within 24 hours.
                     </p>
                   </div>
-                  <div className="border-l-4 border-black pl-4">
-                    <h4 className="font-semibold text-black mb-2">
+                  <div className="border-l-4 border-orange-500 pl-4">
+                    <h4 className="font-semibold text-white mb-2">
                       Is membership free?
                     </h4>
-                    <p className="text-gray-600 text-sm">
+                    <p className="text-gray-300 text-sm">
                       Yes! Our community membership is completely free. We
                       believe in accessible collaboration.
                     </p>
                   </div>
-                  <div className="border-l-4 border-black pl-4">
-                    <h4 className="font-semibold text-black mb-2">
+                  <div className="border-l-4 border-orange-500 pl-4">
+                    <h4 className="font-semibold text-white mb-2">
                       What kind of projects do you work on?
                     </h4>
-                    <p className="text-gray-600 text-sm">
+                    <p className="text-gray-300 text-sm">
                       We work on various projects including web development,
                       mobile apps, design, and innovative tech solutions.
                     </p>

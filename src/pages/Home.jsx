@@ -70,7 +70,7 @@ const Home = () => {
   ];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen pt-12">
       {/* Hero Section */}
       <section
         className="min-h-screen flex items-center relative overflow-hidden"
@@ -148,72 +148,97 @@ const Home = () => {
               </span>
             </div>
             <h1
-              className={`text-5xl md:text-7xl lg:text-8xl font-black mb-6 text-white leading-tight transition-all duration-1000 delay-200 ${
+              className={`text-3xl md:text-4xl lg:text-5xl font-black mb-6 text-white leading-tight transition-all duration-1000 delay-200 ${
                 heroLoaded
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-10"
               }`}
             >
-              <div className="text-left">
-                <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white leading-tight">
-                  Main bareng di{" "}
-                  <span
-                    className="bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent"
-                    style={{
-                      background:
-                        "linear-gradient(135deg, #FF7E21 0%, #FF6B35 50%, #F7931E 100%)",
-                      WebkitBackgroundClip: "text",
-                      WebkitTextFillColor: "transparent",
-                    }}
-                  >
-                    Cazera Society
-                  </span>
-                </h1>
-                <p className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mt-4">
-                  Roblox & Mobile Legends
-                </p>
-              </div>
+              Main bareng di{" "}
+              <span
+                className="bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent"
+                style={{
+                  background:
+                    "linear-gradient(135deg, #FF7E21 0%, #FF6B35 50%, #F7931E 100%)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  filter: "drop-shadow(0 0 8px rgba(255, 126, 33, 0.4))",
+                }}
+              >
+                Cazera Society!
+              </span>
             </h1>
             <p
-              className={`text-lg md:text-xl lg:text-2xl mb-8 max-w-4xl mx-auto leading-relaxed transition-all duration-1000 delay-400 ${
+              className={`text-lg md:text-xl lg:text-2xl font-bold text-white mt-4 transition-all duration-1000 delay-300 ${
+                heroLoaded
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-10"
+              }`}
+            >
+              Roblox & Mobile Legends{" "}
+              <span className="inline-block animate-float">🎮</span>
+            </p>
+            <p
+              className={`text-base md:text-lg lg:text-xl mb-8 max-w-4xl leading-relaxed transition-all duration-1000 delay-400 ${
                 heroLoaded
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-10"
               }`}
               style={{ color: "#FAFAFA" }}
-            ></p>
+            >
+              Ketemu temen baru, ngobrol rame-rame, dan main bareng!{" "}
+              <span
+                className="inline-block animate-float"
+                style={{ animationDelay: "1s" }}
+              >
+                ✨
+              </span>
+            </p>
+
             <div
-              className={`flex flex-col sm:flex-row gap-6 justify-start transition-all duration-1000 delay-600 ${
+              className={`flex flex-col sm:flex-row gap-4 justify-start transition-all duration-1000 delay-600 ${
                 heroLoaded
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-10"
               }`}
             >
               <button
-                className="group px-8 py-4 rounded-full font-bold text-lg transition-all duration-500 hover:scale-105 hover:shadow-xl relative overflow-hidden"
+                className="group inline-flex items-center px-6 py-3 rounded-full font-semibold text-base transition-all duration-500 hover:scale-105 hover:shadow-xl relative overflow-hidden"
                 style={{ backgroundColor: "#FF7E21", color: "#FFFFFF" }}
+                onClick={() =>
+                  window.open("https://discord.gg/mK26qvZXSY", "_blank")
+                }
               >
-                <span className="relative z-10">Gabung Sekarang</span>
+                <svg
+                  className="w-5 h-5 mr-2"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0a12.64 12.64 0 0 0-.617-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.078.078 0 0 0 .084-.028a14.09 14.09 0 0 0 1.226-1.994a.076.076 0 0 0-.041-.106a13.107 13.107 0 0 1-1.872-.892a.077.077 0 0 1-.008-.128a10.2 10.2 0 0 0 .372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127a12.299 12.299 0 0 1-1.873.892a.077.077 0 0 0-.041.106a14.09 14.09 0 0 0 1.226 1.994a.078.078 0 0 0 .084.028a19.9 19.9 0 0 0 5.993-3.03a.082.082 0 0 0 .031-.057c.419-4.477-.566-9.011-2.674-13.66a.07.07 0 0 0-.032-.027zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z" />
+                </svg>
+                <span className="relative z-10">Gabung Discord</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-orange-400 to-red-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               </button>
-              <button
-                className="px-8 py-4 rounded-full font-bold text-lg border-2 transition-all duration-500 hover:scale-105 hover:shadow-xl"
+              <a
+                href="https://www.tiktok.com/@cazerasociety?_t=ZS-90PCcM1MBmb&_r=1"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center px-5 py-3 rounded-full font-semibold text-base transition-all duration-500 hover:scale-105 hover:shadow-xl"
                 style={{
-                  borderColor: "#FFFFFF",
+                  backgroundColor: "#000000",
                   color: "#FFFFFF",
-                  backgroundColor: "transparent",
-                }}
-                onMouseEnter={(e) => {
-                  e.target.style.backgroundColor = "#FFFFFF";
-                  e.target.style.color = "#212121";
-                }}
-                onMouseLeave={(e) => {
-                  e.target.style.backgroundColor = "transparent";
-                  e.target.style.color = "#FFFFFF";
+                  border: "2px solid #FFFFFF",
                 }}
               >
-                Cek Event
-              </button>
+                <svg
+                  className="w-4 h-4 mr-2"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
+                </svg>
+                TikTok
+              </a>
             </div>
           </div>
         </div>

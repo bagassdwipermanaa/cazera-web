@@ -25,10 +25,10 @@ const Gallery = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen pt-12">
       {/* Hero Section */}
       <section
-        className="py-32 relative overflow-hidden animate-on-scroll"
+        className="min-h-screen flex items-center relative overflow-hidden animate-on-scroll"
         id="hero"
         style={{ backgroundColor: "#212121" }}
       >
@@ -89,7 +89,7 @@ const Gallery = () => {
               </span>
             </div>
             <h1
-              className={`text-5xl md:text-7xl font-bold mb-6 text-white transition-all duration-1000 delay-200 ${
+              className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-white transition-all duration-1000 delay-200 ${
                 isVisible.hero
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-10"
@@ -98,7 +98,7 @@ const Gallery = () => {
               Gallery <span style={{ color: "#FF7E21" }}>Keseruan</span>
             </h1>
             <p
-              className={`text-xl md:text-2xl mb-8 max-w-3xl mx-auto transition-all duration-1000 delay-400 ${
+              className={`text-lg md:text-xl mb-8 max-w-3xl mx-auto transition-all duration-1000 delay-400 ${
                 isVisible.hero
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-10"
@@ -112,13 +112,28 @@ const Gallery = () => {
       </section>
 
       {/* Gallery Grid */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section
+        className="py-32 relative animate-on-scroll"
+        id="gallery-grid"
+        style={{ backgroundColor: "#212121" }}
+      >
+        {/* Animated Background */}
+        <div className="absolute inset-0">
+          <div className="absolute top-10 left-20 w-8 h-8 border-2 border-white transform rotate-45 opacity-20 animate-spin"></div>
+          <div className="absolute bottom-20 right-10 w-6 h-6 bg-white transform rotate-12 opacity-30 animate-pulse"></div>
+          <div className="absolute top-1/2 left-10 w-4 h-4 border border-white opacity-25 animate-bounce"></div>
+          <div
+            className="absolute top-20 right-1/4 w-12 h-12 rounded-full opacity-15 animate-pulse"
+            style={{ backgroundColor: "#FF7E21" }}
+          ></div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
               Momen Terbaik Kami
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               Dokumentasi kegiatan, workshop, dan momen berharga bersama
               komunitas
             </p>
@@ -127,7 +142,7 @@ const Gallery = () => {
           {/* Gallery Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Gallery Item 1 */}
-            <div className="bg-gray-100 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <div className="bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
               <div className="h-64 bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
                 <div className="text-center text-white">
                   <svg
@@ -142,10 +157,10 @@ const Gallery = () => {
                 </div>
               </div>
               <div className="p-6">
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                <h3 className="text-lg font-semibold text-white mb-2">
                   Workshop React Development
                 </h3>
-                <p className="text-gray-600 text-sm">
+                <p className="text-gray-300 text-sm">
                   Workshop intensif belajar React bersama mentor berpengalaman.
                   Peserta belajar dari dasar hingga membuat aplikasi real.
                 </p>
@@ -163,7 +178,7 @@ const Gallery = () => {
             </div>
 
             {/* Gallery Item 2 */}
-            <div className="bg-gray-100 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <div className="bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
               <div className="h-64 bg-gradient-to-br from-green-500 to-teal-600 flex items-center justify-center">
                 <div className="text-center text-white">
                   <svg
@@ -178,10 +193,10 @@ const Gallery = () => {
                 </div>
               </div>
               <div className="p-6">
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                <h3 className="text-lg font-semibold text-white mb-2">
                   Tech Meetup 2024
                 </h3>
-                <p className="text-gray-600 text-sm">
+                <p className="text-gray-300 text-sm">
                   Acara networking untuk developer dan tech enthusiast. Berbagi
                   pengalaman dan membangun koneksi profesional.
                 </p>
@@ -199,7 +214,7 @@ const Gallery = () => {
             </div>
 
             {/* Gallery Item 3 */}
-            <div className="bg-gray-100 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <div className="bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
               <div className="h-64 bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center">
                 <div className="text-center text-white">
                   <svg
@@ -214,10 +229,10 @@ const Gallery = () => {
                 </div>
               </div>
               <div className="p-6">
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                <h3 className="text-lg font-semibold text-white mb-2">
                   Cazera Hackathon
                 </h3>
-                <p className="text-gray-600 text-sm">
+                <p className="text-gray-300 text-sm">
                   48 jam hackathon untuk menciptakan solusi inovatif. Tim
                   terbaik mendapatkan mentorship dan funding.
                 </p>
@@ -235,7 +250,7 @@ const Gallery = () => {
             </div>
 
             {/* Gallery Item 4 */}
-            <div className="bg-gray-100 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <div className="bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
               <div className="h-64 bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center">
                 <div className="text-center text-white">
                   <svg
@@ -250,10 +265,10 @@ const Gallery = () => {
                 </div>
               </div>
               <div className="p-6">
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                <h3 className="text-lg font-semibold text-white mb-2">
                   1-on-1 Mentorship
                 </h3>
-                <p className="text-gray-600 text-sm">
+                <p className="text-gray-300 text-sm">
                   Program mentorship personal untuk membantu member
                   mengembangkan skill dan mencapai goals mereka.
                 </p>
@@ -271,7 +286,7 @@ const Gallery = () => {
             </div>
 
             {/* Gallery Item 5 */}
-            <div className="bg-gray-100 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <div className="bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
               <div className="h-64 bg-gradient-to-br from-indigo-500 to-blue-600 flex items-center justify-center">
                 <div className="text-center text-white">
                   <svg
@@ -288,10 +303,10 @@ const Gallery = () => {
                 </div>
               </div>
               <div className="p-6">
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                <h3 className="text-lg font-semibold text-white mb-2">
                   Annual Awards
                 </h3>
-                <p className="text-gray-600 text-sm">
+                <p className="text-gray-300 text-sm">
                   Malam penghargaan untuk member terbaik tahun ini.
                   Mengapresiasi kontribusi dan pencapaian luar biasa.
                 </p>
@@ -309,7 +324,7 @@ const Gallery = () => {
             </div>
 
             {/* Gallery Item 6 */}
-            <div className="bg-gray-100 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <div className="bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
               <div className="h-64 bg-gradient-to-br from-teal-500 to-cyan-600 flex items-center justify-center">
                 <div className="text-center text-white">
                   <svg
@@ -324,10 +339,10 @@ const Gallery = () => {
                 </div>
               </div>
               <div className="p-6">
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                <h3 className="text-lg font-semibold text-white mb-2">
                   Tech for Good
                 </h3>
-                <p className="text-gray-600 text-sm">
+                <p className="text-gray-300 text-sm">
                   Program community service menggunakan teknologi untuk membantu
                   masyarakat dan organisasi non-profit.
                 </p>

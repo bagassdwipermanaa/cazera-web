@@ -1,31 +1,46 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <nav
-      className="shadow-lg sticky top-0 z-50"
-      style={{ backgroundColor: "#212121" }}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+    <nav className="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+      <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-1">
+        <div
+          className={`flex justify-between items-center rounded-full px-3 py-1 transition-all duration-300 ${
+            isScrolled
+              ? "bg-black/30 backdrop-blur-md shadow-lg"
+              : "bg-transparent"
+          }`}
+        >
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link to="/" className="flex items-center">
               <img
-                src="/images/cazera images.png"
+                src="/images/LOGO CAZERA.png"
                 alt="Cazera Society"
-                className="h-16 w-auto mr-3"
+                className="h-10 w-auto mr-2"
                 onError={(e) => {
                   e.target.style.display = "none";
                   e.target.nextSibling.style.display = "block";
                 }}
               />
               <span
-                className="text-2xl font-bold text-white"
+                className={`text-xl font-bold transition-colors duration-300 ${
+                  isScrolled ? "text-white" : "text-white"
+                }`}
                 style={{ display: "none" }}
               >
                 Cazera Society
@@ -35,92 +50,57 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-8">
+            <div className="flex items-center space-x-6">
               <Link
                 to="/"
-                className="text-white hover:text-FF7E21 px-3 py-2 text-sm font-medium transition-colors duration-200"
-                style={{ color: "#FFFFFF" }}
-                onMouseEnter={(e) => (e.target.style.color = "#FF7E21")}
-                onMouseLeave={(e) => (e.target.style.color = "#FFFFFF")}
+                className={`px-2 py-1 rounded-full text-sm font-medium transition-all duration-300 ${
+                  isScrolled
+                    ? "text-white hover:bg-white/20"
+                    : "text-white hover:bg-white/10"
+                }`}
               >
                 Home
               </Link>
               <Link
                 to="/about"
-                className="text-white hover:text-FF7E21 px-3 py-2 text-sm font-medium transition-colors duration-200"
-                style={{ color: "#FFFFFF" }}
-                onMouseEnter={(e) => (e.target.style.color = "#FF7E21")}
-                onMouseLeave={(e) => (e.target.style.color = "#FFFFFF")}
+                className={`px-2 py-1 rounded-full text-sm font-medium transition-all duration-300 ${
+                  isScrolled
+                    ? "text-white hover:bg-white/20"
+                    : "text-white hover:bg-white/10"
+                }`}
               >
                 About
               </Link>
               <Link
-                to="/contact"
-                className="text-white hover:text-FF7E21 px-3 py-2 text-sm font-medium transition-colors duration-200"
-                style={{ color: "#FFFFFF" }}
-                onMouseEnter={(e) => (e.target.style.color = "#FF7E21")}
-                onMouseLeave={(e) => (e.target.style.color = "#FFFFFF")}
+                to="/products"
+                className={`px-2 py-1 rounded-full text-sm font-medium transition-all duration-300 ${
+                  isScrolled
+                    ? "text-white hover:bg-white/20"
+                    : "text-white hover:bg-white/10"
+                }`}
               >
-                Contact
+                Products
               </Link>
               <Link
                 to="/gallery"
-                className="text-white hover:text-FF7E21 px-3 py-2 text-sm font-medium transition-colors duration-200"
-                style={{ color: "#FFFFFF" }}
-                onMouseEnter={(e) => (e.target.style.color = "#FF7E21")}
-                onMouseLeave={(e) => (e.target.style.color = "#FFFFFF")}
+                className={`px-2 py-1 rounded-full text-sm font-medium transition-all duration-300 ${
+                  isScrolled
+                    ? "text-white hover:bg-white/20"
+                    : "text-white hover:bg-white/10"
+                }`}
               >
                 Gallery
               </Link>
-
-              {/* Media Partners Dropdown */}
-              <div className="relative group">
-                <button
-                  className="px-3 py-2 text-sm font-medium transition-colors duration-200 flex items-center"
-                  style={{ color: "#FFFFFF" }}
-                  onMouseEnter={(e) => (e.target.style.color = "#FF7E21")}
-                  onMouseLeave={(e) => (e.target.style.color = "#FFFFFF")}
-                >
-                  Media Partners
-                  <svg
-                    className="w-4 h-4 ml-1"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M19 9l-7 7-7-7"
-                    />
-                  </svg>
-                </button>
-
-                {/* Dropdown Menu */}
-                <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                  <div className="py-1">
-                    <a
-                      href="#"
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors duration-200"
-                    >
-                      Partner 1
-                    </a>
-                    <a
-                      href="#"
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors duration-200"
-                    >
-                      Partner 2
-                    </a>
-                    <a
-                      href="#"
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors duration-200"
-                    >
-                      Partner 3
-                    </a>
-                  </div>
-                </div>
-              </div>
+              <Link
+                to="/contact"
+                className={`px-2 py-1 rounded-full text-sm font-medium transition-all duration-300 ${
+                  isScrolled
+                    ? "text-white hover:bg-white/20"
+                    : "text-white hover:bg-white/10"
+                }`}
+              >
+                Contact
+              </Link>
             </div>
           </div>
 
@@ -128,7 +108,11 @@ const Navbar = () => {
           <div className="md:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-gray-900 hover:text-gray-600 focus:outline-none focus:text-gray-600"
+              className={`p-2 rounded-full transition-all duration-300 ${
+                isScrolled
+                  ? "text-white hover:bg-white/20"
+                  : "text-white hover:bg-white/10"
+              }`}
             >
               <svg
                 className="h-6 w-6"
@@ -158,63 +142,49 @@ const Navbar = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t">
+          <div className="md:hidden mt-4">
+            <div
+              className={`px-4 py-4 rounded-2xl space-y-2 transition-all duration-300 ${
+                isScrolled
+                  ? "bg-black/30 backdrop-blur-md"
+                  : "bg-black/20 backdrop-blur-sm"
+              }`}
+            >
               <Link
                 to="/"
-                className="text-gray-900 hover:text-gray-600 block px-3 py-2 text-base font-medium"
+                className="block px-4 py-3 rounded-full text-white hover:bg-white/20 transition-all duration-300"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Home
               </Link>
               <Link
                 to="/about"
-                className="text-gray-900 hover:text-gray-600 block px-3 py-2 text-base font-medium"
+                className="block px-4 py-3 rounded-full text-white hover:bg-white/20 transition-all duration-300"
                 onClick={() => setIsMenuOpen(false)}
               >
                 About
               </Link>
               <Link
-                to="/contact"
-                className="text-gray-900 hover:text-gray-600 block px-3 py-2 text-base font-medium"
+                to="/products"
+                className="block px-4 py-3 rounded-full text-white hover:bg-white/20 transition-all duration-300"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Contact
+                Products
               </Link>
               <Link
                 to="/gallery"
-                className="text-gray-900 hover:text-gray-600 block px-3 py-2 text-base font-medium"
+                className="block px-4 py-3 rounded-full text-white hover:bg-white/20 transition-all duration-300"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Gallery
               </Link>
-
-              {/* Media Partners Mobile */}
-              <div className="px-3 py-2">
-                <div className="text-gray-900 font-medium text-base mb-2">
-                  Media Partners
-                </div>
-                <div className="pl-4 space-y-1">
-                  <a
-                    href="#"
-                    className="block text-gray-600 hover:text-gray-900 text-sm transition-colors duration-200"
-                  >
-                    Partner 1
-                  </a>
-                  <a
-                    href="#"
-                    className="block text-gray-600 hover:text-gray-900 text-sm transition-colors duration-200"
-                  >
-                    Partner 2
-                  </a>
-                  <a
-                    href="#"
-                    className="block text-gray-600 hover:text-gray-900 text-sm transition-colors duration-200"
-                  >
-                    Partner 3
-                  </a>
-                </div>
-              </div>
+              <Link
+                to="/contact"
+                className="block px-4 py-3 rounded-full text-white hover:bg-white/20 transition-all duration-300"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Contact
+              </Link>
             </div>
           </div>
         )}
