@@ -1,5 +1,4 @@
 import React from "react";
-import logoImage from "/images/logo-cazera.png?url";
 
 const Footer = () => {
   return (
@@ -10,7 +9,7 @@ const Footer = () => {
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center mb-4">
               <img
-                src={logoImage}
+                src="/images/logo-cazera.png"
                 alt="Cazera Society"
                 className="h-16 w-auto mr-3"
               />
