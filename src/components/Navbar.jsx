@@ -32,19 +32,7 @@ const Navbar = () => {
                 src="/images/logo-cazera.png"
                 alt="Cazera Society"
                 className="h-10 w-auto mr-2"
-                onError={(e) => {
-                  e.target.style.display = "none";
-                  e.target.nextSibling.style.display = "block";
-                }}
               />
-              <span
-                className={`text-xl font-bold transition-colors duration-300 ${
-                  isScrolled ? "text-white" : "text-white"
-                }`}
-                style={{ display: "none" }}
-              >
-                Cazera Society
-              </span>
             </Link>
           </div>
 

@@ -12,14 +12,7 @@ const Footer = () => {
                 src="/images/logo-cazera.png"
                 alt="Cazera Society"
                 className="h-16 w-auto mr-3"
-                onError={(e) => {
-                  e.target.style.display = "none";
-                  e.target.nextSibling.style.display = "block";
-                }}
               />
-              <h3 className="text-2xl font-bold" style={{ display: "none" }}>
-                Cazera Society
-              </h3>
             </div>
             <p className="mb-4 max-w-md" style={{ color: "#FAFAFA" }}>
               Komunitas Roblox & MLBB yang rame banget! Main bareng, ketemu
