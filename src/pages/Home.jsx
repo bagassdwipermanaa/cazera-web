@@ -1,0 +1,626 @@
+import React, { useState, useEffect } from "react";
+
+const Home = () => {
+  const [isVisible, setIsVisible] = useState({});
+  const [scrollY, setScrollY] = useState(0);
+  const [openFAQ, setOpenFAQ] = useState(null);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [heroLoaded, setHeroLoaded] = useState(false);
+
+  useEffect(() => {
+    // Hero entrance animation
+    const timer = setTimeout(() => {
+      setHeroLoaded(true);
+    }, 100);
+
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+
+      // Check visibility of sections
+      const sections = document.querySelectorAll(".animate-on-scroll");
+      sections.forEach((section) => {
+        const rect = section.getBoundingClientRect();
+        const isInView = rect.top < window.innerHeight && rect.bottom > 0;
+        setIsVisible((prev) => ({
+          ...prev,
+          [section.id]: isInView,
+        }));
+      });
+    };
+
+    const handleMouseMove = (e) => {
+      setMousePosition({ x: e.clientX, y: e.clientY });
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("mousemove", handleMouseMove);
+    handleScroll(); // Initial check
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("mousemove", handleMouseMove);
+    };
+  }, []);
+
+  const toggleFAQ = (index) => {
+    setOpenFAQ(openFAQ === index ? null : index);
+  };
+
+  const faqData = [
+    {
+      question: "Gimana cara gabung ke komunitas Cazera Society?",
+      answer:
+        "Gampang banget! Tinggal klik tombol 'Gabung Sekarang' di atas atau langsung ke Discord server kita. Setelah masuk, kenalan di channel welcome dan mulai main bareng!",
+    },
+    {
+      question: "Gabung komunitas bayar gak?",
+      answer:
+        "Gratis total! Komunitas kita 100% gratis. Kita percaya semua orang berhak main bareng dan seru-seruan tanpa harus bayar apapun.",
+    },
+    {
+      question: "Event apa aja yang ada di komunitas?",
+      answer:
+        "Kita sering ngadain tournament Roblox dan MLBB, giveaway, dan event seru lainnya! Cek channel event di Discord buat info lengkapnya.",
+    },
+    {
+      question: "Bisa beli produk Roblox dimana?",
+      answer:
+        "Produk outfit R6 dan R15 kita bisa dibeli langsung di Roblox! Update produk baru setiap minggu, jadi pantengin terus ya!",
+    },
+  ];
+
+  return (
+    <div className="min-h-screen">
+      {/* Hero Section */}
+      <section
+        className="min-h-screen flex items-center relative overflow-hidden"
+        style={{ backgroundColor: "#212121" }}
+      >
+        {/* Animated Background Elements */}
+        <div className="absolute inset-0">
+          {/* Cursor Glow Effect */}
+          <div
+            className="fixed pointer-events-none z-10"
+            style={{
+              left: mousePosition.x - 150,
+              top: mousePosition.y - 150,
+              width: "300px",
+              height: "300px",
+              background:
+                "radial-gradient(circle, rgba(255, 126, 33, 0.2) 0%, rgba(255, 126, 33, 0.1) 50%, transparent 100%)",
+              filter: "blur(60px)",
+              transition: "all 0.1s linear",
+            }}
+          ></div>
+
+          {/* Diagonal Ribbons */}
+          <div className="absolute top-10 left-0 w-full h-px bg-gradient-to-r from-transparent via-white to-transparent opacity-20 transform rotate-12"></div>
+          <div className="absolute top-32 right-0 w-full h-px bg-gradient-to-r from-transparent via-white to-transparent opacity-15 transform -rotate-12"></div>
+          <div className="absolute bottom-40 left-0 w-full h-px bg-gradient-to-r from-transparent via-white to-transparent opacity-10 transform rotate-6"></div>
+
+          {/* Floating Community Elements */}
+          <div className="absolute top-16 left-1/4 text-white text-xs opacity-30 animate-pulse font-mono">
+            <div className="flex items-center space-x-2">
+              <div className="w-2 h-2 bg-white rounded-full"></div>
+              <span>DISCORD</span>
+            </div>
+          </div>
+          <div className="absolute top-24 right-1/4 text-white text-xs opacity-25 animate-bounce font-mono">
+            <div className="flex items-center space-x-2">
+              <div className="w-2 h-2 bg-white rounded-full"></div>
+              <span>ROBLOX</span>
+            </div>
+          </div>
+          <div className="absolute bottom-32 left-1/2 text-white text-xs opacity-20 animate-pulse font-mono">
+            <div className="flex items-center space-x-2">
+              <div className="w-2 h-2 bg-white rounded-full"></div>
+              <span>MLBB</span>
+            </div>
+          </div>
+
+          {/* Subtle Grid Pattern */}
+          <div
+            className="absolute inset-0 opacity-5"
+            style={{
+              backgroundImage: `
+                linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)
+              `,
+              backgroundSize: "50px 50px",
+            }}
+          ></div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+          <div className="text-left">
+            <div
+              className={`mb-4 transition-all duration-1000 ${
+                heroLoaded
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-10"
+              }`}
+            >
+              <span
+                className="inline-block px-6 py-3 rounded-full text-sm font-semibold animate-pulse"
+                style={{ backgroundColor: "#FF7E21", color: "#FFFFFF" }}
+              >
+                🎮 Cazera Society
+              </span>
+            </div>
+            <h1
+              className={`text-5xl md:text-7xl lg:text-8xl font-black mb-6 text-white leading-tight transition-all duration-1000 delay-200 ${
+                heroLoaded
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-10"
+              }`}
+            >
+              <div className="text-left">
+                <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white leading-tight">
+                  Main bareng di{" "}
+                  <span
+                    className="bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent"
+                    style={{
+                      background:
+                        "linear-gradient(135deg, #FF7E21 0%, #FF6B35 50%, #F7931E 100%)",
+                      WebkitBackgroundClip: "text",
+                      WebkitTextFillColor: "transparent",
+                    }}
+                  >
+                    Cazera Society
+                  </span>
+                </h1>
+                <p className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mt-4">
+                  Roblox & Mobile Legends
+                </p>
+              </div>
+            </h1>
+            <p
+              className={`text-lg md:text-xl lg:text-2xl mb-8 max-w-4xl mx-auto leading-relaxed transition-all duration-1000 delay-400 ${
+                heroLoaded
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-10"
+              }`}
+              style={{ color: "#FAFAFA" }}
+            ></p>
+            <div
+              className={`flex flex-col sm:flex-row gap-6 justify-start transition-all duration-1000 delay-600 ${
+                heroLoaded
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-10"
+              }`}
+            >
+              <button
+                className="group px-8 py-4 rounded-full font-bold text-lg transition-all duration-500 hover:scale-105 hover:shadow-xl relative overflow-hidden"
+                style={{ backgroundColor: "#FF7E21", color: "#FFFFFF" }}
+              >
+                <span className="relative z-10">Gabung Sekarang</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-orange-400 to-red-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              </button>
+              <button
+                className="px-8 py-4 rounded-full font-bold text-lg border-2 transition-all duration-500 hover:scale-105 hover:shadow-xl"
+                style={{
+                  borderColor: "#FFFFFF",
+                  color: "#FFFFFF",
+                  backgroundColor: "transparent",
+                }}
+                onMouseEnter={(e) => {
+                  e.target.style.backgroundColor = "#FFFFFF";
+                  e.target.style.color = "#212121";
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.backgroundColor = "transparent";
+                  e.target.style.color = "#FFFFFF";
+                }}
+              >
+                Cek Event
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section
+        id="services"
+        className="py-32 relative animate-on-scroll"
+        style={{ backgroundColor: "#212121" }}
+      >
+        {/* Animated Background */}
+        <div className="absolute inset-0">
+          <div className="absolute top-10 left-20 w-8 h-8 border-2 border-white transform rotate-45 opacity-20 animate-spin"></div>
+          <div className="absolute bottom-20 right-10 w-6 h-6 bg-white transform rotate-12 opacity-30 animate-pulse"></div>
+          <div className="absolute top-1/2 left-10 w-4 h-4 border border-white opacity-25 animate-bounce"></div>
+          <div
+            className="absolute top-20 right-1/4 w-12 h-12 rounded-full opacity-15 animate-pulse"
+            style={{ backgroundColor: "#FF7E21" }}
+          ></div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div
+            className={`text-center mb-20 transition-all duration-1000 ${
+              isVisible.services
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-10"
+            }`}
+          >
+            <div className="mb-6">
+              <span
+                className="inline-block px-4 py-2 rounded-full text-sm font-semibold mb-4 hover:scale-110 transition-transform duration-300 cursor-default"
+                style={{ backgroundColor: "#FF7E21", color: "#FFFFFF" }}
+              >
+                🎯HMMMMMmmmm
+              </span>
+            </div>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 hover:text-orange-400 transition-colors duration-500">
+              Yang ada di{" "}
+              <span style={{ color: "#FF7E21" }}>Cazera Society apa?</span>
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+            {/* Service Card 1 */}
+            <div
+              className={`group transition-all duration-1000 delay-200 ${
+                isVisible.services
+                  ? "opacity-100 translate-x-0"
+                  : "opacity-0 -translate-x-10"
+              }`}
+            >
+              <div className="bg-gray-800 p-10 rounded-3xl shadow-2xl transition-all duration-500 hover:scale-105 hover:shadow-3xl hover:rotate-1 relative overflow-hidden border border-gray-700 hover:border-orange-500">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-orange-500/20 to-red-500/20 rounded-full -translate-y-16 translate-x-16 opacity-50 group-hover:opacity-70 transition-opacity duration-500"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-red-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="relative z-10">
+                  <div className="flex items-center mb-6">
+                    <div
+                      className="w-12 h-12 rounded-full flex items-center justify-center mr-4 text-white font-black text-xl shadow-lg group-hover:scale-110 transition-transform duration-300"
+                      style={{ backgroundColor: "#FF7E21" }}
+                    >
+                      01
+                    </div>
+                    <h3 className="text-2xl font-black text-white group-hover:text-orange-400 transition-colors duration-300">
+                      Event & Tournament
+                    </h3>
+                  </div>
+                  <p
+                    className="mb-6 leading-relaxed transition-colors duration-300"
+                    style={{ color: "#FAFAFA" }}
+                  >
+                    Tournament Roblox & MLBB setiap minggu! Giveaway hadiah
+                    keren, dan main bareng sama temen-temen. Pasti seru dan
+                    rame!
+                  </p>
+                  <button
+                    className="px-8 py-4 rounded-full border-2 font-bold transition-all duration-300 hover:scale-105 hover:shadow-lg hover:bg-orange-500 hover:text-white hover:border-orange-500"
+                    style={{ borderColor: "#FFFFFF", color: "#FFFFFF" }}
+                  >
+                    Lihat Detail →
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Service Card 2 */}
+            <div
+              className={`group transition-all duration-1000 delay-400 ${
+                isVisible.services
+                  ? "opacity-100 translate-x-0"
+                  : "opacity-0 translate-x-10"
+              }`}
+            >
+              <div className="bg-gray-800 p-10 rounded-3xl shadow-2xl transition-all duration-500 hover:scale-105 hover:shadow-3xl hover:-rotate-1 relative overflow-hidden border border-gray-700 hover:border-orange-500">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-orange-500/20 to-red-500/20 rounded-full -translate-y-16 translate-x-16 opacity-50 group-hover:opacity-70 transition-opacity duration-500"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-red-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="relative z-10">
+                  <div className="flex items-center mb-6">
+                    <div
+                      className="w-12 h-12 rounded-full flex items-center justify-center mr-4 text-white font-black text-xl shadow-lg group-hover:scale-110 transition-transform duration-300"
+                      style={{ backgroundColor: "#FF7E21" }}
+                    >
+                      02
+                    </div>
+                    <h3 className="text-2xl font-black text-white group-hover:text-orange-400 transition-colors duration-300">
+                      Produk Roblox Keren
+                    </h3>
+                  </div>
+                  <p
+                    className="mb-6 leading-relaxed transition-colors duration-300"
+                    style={{ color: "#FAFAFA" }}
+                  >
+                    Outfit R6 & R15 eksklusif! Design keren yang bikin karakter
+                    kamu makin kece. Update produk baru terus setiap minggu.
+                  </p>
+                  <button
+                    className="px-8 py-4 rounded-full border-2 font-bold transition-all duration-300 hover:scale-105 hover:shadow-lg hover:bg-orange-500 hover:text-white hover:border-orange-500"
+                    style={{ borderColor: "#FFFFFF", color: "#FFFFFF" }}
+                  >
+                    Lihat Detail →
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Client Logos */}
+          <div
+            className={`mt-24 text-center transition-all duration-1000 delay-600 ${
+              isVisible.services
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-10"
+            }`}
+          >
+            <p className="text-white mb-12 opacity-70 text-xl font-semibold hover:opacity-100 transition-opacity duration-300">
+              Trusted by amazing communities
+            </p>
+            <div className="relative overflow-hidden">
+              <div className="flex animate-scroll hover:pause-animation">
+                <div className="text-white text-2xl font-black hover:opacity-100 hover:scale-110 transition-all duration-300 cursor-pointer whitespace-nowrap opacity-60 px-16 hover:text-orange-400">
+                  Discord
+                </div>
+                <div className="text-white text-2xl font-black hover:opacity-100 hover:scale-110 transition-all duration-300 cursor-pointer whitespace-nowrap opacity-60 px-16 hover:text-orange-400">
+                  Roblox
+                </div>
+                <div className="text-white text-2xl font-black hover:opacity-100 hover:scale-110 transition-all duration-300 cursor-pointer whitespace-nowrap opacity-60 px-16 hover:text-orange-400">
+                  MLBB
+                </div>
+                <div className="text-white text-2xl font-black hover:opacity-100 hover:scale-110 transition-all duration-300 cursor-pointer whitespace-nowrap opacity-60 px-16 hover:text-orange-400">
+                  Discord
+                </div>
+                <div className="text-white text-2xl font-black hover:opacity-100 hover:scale-110 transition-all duration-300 cursor-pointer whitespace-nowrap opacity-60 px-16 hover:text-orange-400">
+                  Roblox
+                </div>
+                <div className="text-white text-2xl font-black hover:opacity-100 hover:scale-110 transition-all duration-300 cursor-pointer whitespace-nowrap opacity-60 px-16 hover:text-orange-400">
+                  MLBB
+                </div>
+                <div className="text-white text-2xl font-black hover:opacity-100 hover:scale-110 transition-all duration-300 cursor-pointer whitespace-nowrap opacity-60 px-16 hover:text-orange-400">
+                  Discord
+                </div>
+                <div className="text-white text-2xl font-black hover:opacity-100 hover:scale-110 transition-all duration-300 cursor-pointer whitespace-nowrap opacity-60 px-16 hover:text-orange-400">
+                  Roblox
+                </div>
+                <div className="text-white text-2xl font-black hover:opacity-100 hover:scale-110 transition-all duration-300 cursor-pointer whitespace-nowrap opacity-60 px-16 hover:text-orange-400">
+                  MLBB
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section
+        id="cta"
+        className="py-32 relative overflow-hidden animate-on-scroll"
+        style={{ backgroundColor: "#FF7E21" }}
+      >
+        {/* Background Elements */}
+        <div className="absolute inset-0">
+          <div
+            className="absolute top-10 left-10 w-20 h-20 rounded-full opacity-20 animate-pulse"
+            style={{ backgroundColor: "#FFFFFF" }}
+          ></div>
+          <div
+            className="absolute bottom-20 right-20 w-16 h-16 rounded-full opacity-30 animate-bounce"
+            style={{ backgroundColor: "#FFFFFF" }}
+          ></div>
+          <div
+            className="absolute top-1/2 left-1/4 w-12 h-12 rounded-full opacity-25 animate-pulse"
+            style={{ backgroundColor: "#FFFFFF" }}
+          ></div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <div
+            className={`mb-8 transition-all duration-1000 ${
+              isVisible.cta
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-10"
+            }`}
+          >
+            <span
+              className="inline-block px-6 py-3 rounded-full text-sm font-semibold mb-8 animate-pulse"
+              style={{ backgroundColor: "#FFFFFF", color: "#212121" }}
+            >
+              🎯 Mau Gabung?
+            </span>
+          </div>
+          <h2
+            className={`text-4xl md:text-5xl lg:text-6xl font-black text-white mb-8 transition-all duration-1000 delay-200 ${
+              isVisible.cta
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-10"
+            }`}
+          >
+            Yuk <span style={{ color: "#212121" }}>main bareng</span>!
+          </h2>
+          <p
+            className={`text-lg md:text-xl lg:text-2xl text-white mb-12 max-w-3xl mx-auto opacity-90 font-semibold transition-all duration-1000 delay-400 ${
+              isVisible.cta
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-10"
+            }`}
+          >
+            Gabung sekarang dan jadi bagian dari komunitas{" "}
+            <span className="font-black">terkeren</span>!
+          </p>
+          <div
+            className={`flex flex-col sm:flex-row gap-6 justify-center transition-all duration-1000 delay-600 ${
+              isVisible.cta
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-10"
+            }`}
+          >
+            <a
+              href="https://discord.gg/mK26qvZXSY"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group px-8 py-4 rounded-full font-black text-lg transition-all duration-500 hover:scale-105 hover:shadow-xl relative overflow-hidden"
+              style={{ backgroundColor: "#FFFFFF", color: "#212121" }}
+            >
+              <span className="relative z-10">Join Discord</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-gray-100 to-gray-200 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            </a>
+            <button
+              className="group px-8 py-4 rounded-full font-black text-lg border-2 transition-all duration-500 hover:scale-105 hover:shadow-xl relative overflow-hidden"
+              style={{ borderColor: "#FFFFFF", color: "#FFFFFF" }}
+            >
+              <span className="relative z-10">Learn More</span>
+              <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-500"></div>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section
+        id="faq"
+        className="py-32 relative animate-on-scroll"
+        style={{ backgroundColor: "#212121" }}
+      >
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-20 left-20 w-16 h-16 border-2 border-white transform rotate-45 animate-spin"></div>
+          <div className="absolute bottom-20 right-20 w-12 h-12 bg-white transform rotate-12 animate-pulse"></div>
+          <div className="absolute top-1/2 left-10 w-8 h-8 border border-white animate-bounce"></div>
+          <div className="absolute top-40 right-1/4 w-6 h-6 bg-orange-400 transform rotate-45 animate-pulse"></div>
+          <div className="absolute bottom-40 left-1/4 w-4 h-4 border-2 border-orange-400 animate-spin"></div>
+        </div>
+
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div
+            className={`text-center mb-16 transition-all duration-1000 ${
+              isVisible.faq
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-10"
+            }`}
+          >
+            <div className="mb-6">
+              <span
+                className="inline-block px-6 py-3 rounded-full text-sm font-semibold mb-4 hover:scale-110 transition-transform duration-300 cursor-default"
+                style={{ backgroundColor: "#FF7E21", color: "#FFFFFF" }}
+              >
+                ❓ Pertanyaan yang Sering Ditanyakan
+              </span>
+            </div>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-white">
+              Ada <span style={{ color: "#FF7E21" }}>Pertanyaan</span>?
+            </h2>
+            <p
+              className="text-lg max-w-2xl mx-auto"
+              style={{ color: "#FAFAFA" }}
+            >
+              Temukan jawaban untuk pertanyaan umum tentang komunitas kita
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            {faqData.map((faq, index) => (
+              <div
+                key={index}
+                className={`transition-all duration-1000 ${
+                  isVisible.faq
+                    ? "opacity-100 translate-x-0"
+                    : "opacity-0 -translate-x-10"
+                }`}
+                style={{ transitionDelay: `${(index + 1) * 200}ms` }}
+              >
+                <div className="bg-gray-800 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-700 hover:border-orange-500 overflow-hidden">
+                  {/* Question Header - Always Visible */}
+                  <div
+                    className="p-6 cursor-pointer hover:bg-gray-700 transition-colors duration-300"
+                    onClick={() => toggleFAQ(index)}
+                  >
+                    <div className="flex items-center justify-between">
+                      <h3 className="text-xl font-bold text-white hover:text-orange-400 transition-colors duration-300 pr-4">
+                        {faq.question}
+                      </h3>
+                      <div
+                        className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${
+                          openFAQ === index
+                            ? "bg-orange-500 rotate-45"
+                            : "bg-orange-600 hover:bg-orange-500"
+                        }`}
+                        style={{
+                          backgroundColor:
+                            openFAQ === index ? "#FF7E21" : "#FF7E21",
+                        }}
+                      >
+                        <span className="text-white font-bold text-sm">+</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Answer Content - Collapsible */}
+                  <div
+                    className={`transition-all duration-500 ease-in-out overflow-hidden ${
+                      openFAQ === index
+                        ? "max-h-96 opacity-100"
+                        : "max-h-0 opacity-0"
+                    }`}
+                  >
+                    <div className="px-6 pb-6">
+                      <div className="border-t border-gray-600 pt-4">
+                        <p
+                          className="leading-relaxed"
+                          style={{ color: "#FAFAFA" }}
+                        >
+                          {faq.answer}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Contact CTA */}
+          <div
+            className={`text-center mt-16 transition-all duration-1000 delay-1000 ${
+              isVisible.faq
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-10"
+            }`}
+          >
+            <p
+              className="mb-6 text-xl font-medium"
+              style={{ color: "#FAFAFA" }}
+            >
+              Masih ada pertanyaan? Kita seneng banget denger dari kamu!
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <a
+                href="https://discord.gg/mK26qvZXSY"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group px-8 py-4 rounded-full font-bold text-lg transition-all duration-500 hover:scale-105 hover:shadow-xl relative overflow-hidden"
+                style={{ backgroundColor: "#FF7E21", color: "#FFFFFF" }}
+              >
+                <span className="relative z-10">Tanya di Discord</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-orange-400 to-red-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              </a>
+              <a
+                href="/contact"
+                className="group px-8 py-4 rounded-full font-bold text-lg border-2 transition-all duration-500 hover:scale-105 hover:shadow-xl relative overflow-hidden"
+                style={{ borderColor: "#FFFFFF", color: "#FFFFFF" }}
+                onMouseEnter={(e) => {
+                  e.target.style.backgroundColor = "#FFFFFF";
+                  e.target.style.color = "#212121";
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.backgroundColor = "transparent";
+                  e.target.style.color = "#FFFFFF";
+                }}
+              >
+                <span className="relative z-10">Hubungi Kita</span>
+                <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-500"></div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default Home;
