@@ -167,8 +167,10 @@ const Contact = () => {
               <form
                 name="contact"
                 method="POST"
+                action="/"
                 data-netlify="true"
                 data-netlify-honeypot="bot-field"
+                data-netlify-redirect="/contact"
                 onSubmit={handleSubmit}
                 className="space-y-6"
               >
