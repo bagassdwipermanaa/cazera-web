@@ -39,7 +39,7 @@ const Contact = () => {
   };
 
   const handleSubmit = (e) => {
-    // Let Netlify handle the form submission
+    // Let Netlify handle the form submission naturally
     // Just show success message after a delay
     setTimeout(() => {
       alert("Pesan berhasil dikirim! Kami akan menghubungi Anda segera.");
@@ -167,7 +167,6 @@ const Contact = () => {
               <form
                 name="contact"
                 method="POST"
-                action="/"
                 data-netlify="true"
                 data-netlify-honeypot="bot-field"
                 onSubmit={handleSubmit}
