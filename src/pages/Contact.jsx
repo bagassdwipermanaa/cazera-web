@@ -40,27 +40,27 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+
     // Simple form submission - let Netlify handle it
     const form = e.target;
     const formData = new FormData(form);
-    
+
     // Add form-name for Netlify
-    formData.append('form-name', 'contact');
-    
+    formData.append("form-name", "contact");
+
     // Submit form
-    fetch('/', {
-      method: 'POST',
+    fetch("/", {
+      method: "POST",
       body: formData,
     })
-    .then(() => {
-      alert("Pesan berhasil dikirim! Kami akan menghubungi Anda segera.");
-      setFormData({ name: "", email: "", subject: "", message: "" });
-    })
-    .catch((error) => {
-      console.error("Error:", error);
-      alert("Terjadi kesalahan saat mengirim pesan. Silakan coba lagi.");
-    });
+      .then(() => {
+        alert("Pesan berhasil dikirim! Kami akan menghubungi Anda segera.");
+        setFormData({ name: "", email: "", subject: "", message: "" });
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        alert("Terjadi kesalahan saat mengirim pesan. Silakan coba lagi.");
+      });
   };
 
   return (
