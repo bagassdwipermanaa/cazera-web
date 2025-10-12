@@ -38,13 +38,6 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e) => {
-    // Biarkan Netlify menangani submission form secara native.
-    // Redirect akan dilakukan oleh Netlify setelah submission berhasil.
-    // Pesan sukses akan muncul setelah redirect.
-    // Tidak perlu e.preventDefault() atau fetch di sini.
-  };
-
   return (
     <div className="min-h-screen pt-12">
       {/* Hero Section */}
@@ -169,7 +162,6 @@ const Contact = () => {
                 data-netlify="true"
                 data-netlify-honeypot="bot-field"
                 data-netlify-redirect="/contact"
-                onSubmit={handleSubmit}
                 className="space-y-6"
               >
                 {/* Hidden field untuk Netlify */}
