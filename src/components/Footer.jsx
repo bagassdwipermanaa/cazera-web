@@ -1,5 +1,5 @@
 import React from "react";
-import logoImage from "/images/logo-cazera.png";
+import logoImage from "../../public/images/logo-cazera.png";
 
 const Footer = () => {
   return (
