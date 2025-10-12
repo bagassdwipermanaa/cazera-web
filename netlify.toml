@@ -5,6 +5,19 @@
 [build.environment]
   NODE_VERSION = "18"
 
+# Enable form processing
+[build.processing]
+  skip_processing = false
+
+# Form detection
+[build.processing.css]
+  bundle = true
+  minify = true
+
+[build.processing.js]
+  bundle = true
+  minify = true
+
 [[headers]]
   for = "/images/*"
   [headers.values]
