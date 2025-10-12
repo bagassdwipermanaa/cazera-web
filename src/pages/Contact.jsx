@@ -39,29 +39,10 @@ const Contact = () => {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-
-    // Create form data manually
-    const submitData = new FormData();
-    submitData.append("form-name", "contact");
-    submitData.append("name", formData.name);
-    submitData.append("email", formData.email);
-    submitData.append("subject", formData.subject);
-    submitData.append("message", formData.message);
-
-    // Submit to Netlify
-    fetch("/", {
-      method: "POST",
-      body: submitData,
-    })
-      .then(() => {
-        alert("Pesan berhasil dikirim! Kami akan menghubungi Anda segera.");
-        setFormData({ name: "", email: "", subject: "", message: "" });
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-        alert("Terjadi kesalahan saat mengirim pesan. Silakan coba lagi.");
-      });
+    // Biarkan Netlify menangani submission form secara native.
+    // Redirect akan dilakukan oleh Netlify setelah submission berhasil.
+    // Pesan sukses akan muncul setelah redirect.
+    // Tidak perlu e.preventDefault() atau fetch di sini.
   };
 
   return (
