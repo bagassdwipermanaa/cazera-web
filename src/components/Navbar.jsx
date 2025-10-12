@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import logoImage from "../assets/logo-cazera.png";
+import logoImage from "/images/logo-cazera.png?url";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
