@@ -203,11 +203,11 @@ const Contact = () => {
             {/* Contact Form */}
             <div>
               <h2 className="text-4xl font-bold text-white mb-6">
-                Send us a Message
+                Kirim Pesan ke Kita
               </h2>
               <p className="text-lg text-gray-300 mb-8">
-                Kami senang mendengar dari Anda. Kirimkan pesan dan kami akan
-                merespons dalam 24 jam.
+                Kita seneng banget denger dari kalian! Kirim pesan aja dan kita
+                bakal balas dalam 24 jam ke depan.
               </p>
 
               <form
@@ -230,7 +230,7 @@ const Contact = () => {
                     htmlFor="name"
                     className="block text-sm font-medium text-gray-300 mb-2"
                   >
-                    Full Name
+                    Nama Lengkap
                   </label>
                   <input
                     type="text"
@@ -240,7 +240,7 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent bg-gray-800 text-white placeholder-gray-400"
-                    placeholder="Your full name"
+                    placeholder="Nama lengkap kamu"
                   />
                 </div>
 
@@ -259,7 +259,7 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent bg-gray-800 text-white placeholder-gray-400"
-                    placeholder="your.email@example.com"
+                    placeholder="email.kamu@example.com"
                   />
                 </div>
 
@@ -278,7 +278,7 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent bg-gray-800 text-white placeholder-gray-400"
-                    placeholder="What's this about?"
+                    placeholder="Ini tentang apa nih?"
                   />
                 </div>
 
@@ -287,7 +287,7 @@ const Contact = () => {
                     htmlFor="message"
                     className="block text-sm font-medium text-gray-300 mb-2"
                   >
-                    Message
+                    Pesan
                   </label>
                   <textarea
                     id="message"
@@ -297,7 +297,7 @@ const Contact = () => {
                     required
                     rows={6}
                     className="w-full px-4 py-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent bg-gray-800 text-white placeholder-gray-400"
-                    placeholder="Tell us more about your inquiry..."
+                    placeholder="Ceritain lebih detail tentang yang mau kamu tanyain..."
                   />
                 </div>
 
@@ -311,7 +311,7 @@ const Contact = () => {
                   }`}
                   style={{ backgroundColor: "#FF7E21" }}
                 >
-                  {isSubmitting ? "Mengirim..." : "Send Message"}
+                  {isSubmitting ? "Lagi kirim..." : "Kirim Pesan"}
                 </button>
               </form>
 
@@ -376,11 +376,11 @@ const Contact = () => {
             {/* Contact Information */}
             <div>
               <h2 className="text-4xl font-bold text-white mb-6">
-                Get in Touch
+                Hubungi Kita
               </h2>
               <p className="text-lg text-gray-300 mb-8">
-                Ada beberapa cara untuk terhubung dengan kami. Pilih yang paling
-                nyaman untuk Anda.
+                Ada beberapa cara buat connect sama kita. Pilih yang paling
+                nyaman buat kalian aja.
               </p>
 
               <div className="space-y-8">
@@ -406,9 +406,8 @@ const Contact = () => {
                       Email
                     </h3>
                     <p className="text-gray-300 mb-1">
-                      hello@cazerasociety.com
+                      contact.bagasdp@gmail.com
                     </p>
-                    <p className="text-gray-300">support@cazerasociety.com</p>
                   </div>
                 </div>
 
@@ -428,7 +427,7 @@ const Contact = () => {
                       Discord
                     </h3>
                     <p className="text-gray-300 mb-1">
-                      Join our Discord server
+                      Join Discord server kita
                     </p>
                     <a
                       href="https://discord.gg/mK26qvZXSY"
@@ -441,7 +440,7 @@ const Contact = () => {
                   </div>
                 </div>
 
-                {/* Social Media */}
+                {/* TikTok */}
                 <div className="flex items-start">
                   <div className="w-12 h-12 bg-orange-500 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
                     <svg
@@ -449,53 +448,22 @@ const Contact = () => {
                       fill="currentColor"
                       viewBox="0 0 24 24"
                     >
-                      <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
+                      <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
                     </svg>
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold text-white mb-2">
-                      Social Media
+                      TikTok
                     </h3>
-                    <p className="text-gray-300 mb-1">
-                      Follow us on social media
-                    </p>
-                    <p className="text-gray-300">@cazerasociety</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* FAQ Section */}
-              <div className="mt-12">
-                <h3 className="text-2xl font-bold text-white mb-6">
-                  Frequently Asked Questions
-                </h3>
-                <div className="space-y-4">
-                  <div className="border-l-4 border-orange-500 pl-4">
-                    <h4 className="font-semibold text-white mb-2">
-                      How do I join the community?
-                    </h4>
-                    <p className="text-gray-300 text-sm">
-                      You can join our Discord server or fill out the contact
-                      form above. We'll get back to you within 24 hours.
-                    </p>
-                  </div>
-                  <div className="border-l-4 border-orange-500 pl-4">
-                    <h4 className="font-semibold text-white mb-2">
-                      Is membership free?
-                    </h4>
-                    <p className="text-gray-300 text-sm">
-                      Yes! Our community membership is completely free. We
-                      believe in accessible collaboration.
-                    </p>
-                  </div>
-                  <div className="border-l-4 border-orange-500 pl-4">
-                    <h4 className="font-semibold text-white mb-2">
-                      What kind of projects do you work on?
-                    </h4>
-                    <p className="text-gray-300 text-sm">
-                      We work on various projects including web development,
-                      mobile apps, design, and innovative tech solutions.
-                    </p>
+                    <p className="text-gray-300 mb-1">Follow kita di TikTok</p>
+                    <a
+                      href="https://tiktok.com/@cazerasociety"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-orange-400 hover:text-orange-300 transition-colors duration-200"
+                    >
+                      @cazerasociety
+                    </a>
                   </div>
                 </div>
               </div>
