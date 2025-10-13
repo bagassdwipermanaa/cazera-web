@@ -89,6 +89,7 @@ const Contact = () => {
       setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);
+      console.log("Form submission completed");
     }
   };
 
@@ -211,8 +212,6 @@ const Contact = () => {
 
               <form
                 name="contact"
-                method="POST"
-                action="/"
                 data-netlify="true"
                 data-netlify-honeypot="bot-field"
                 onSubmit={handleSubmit}
