@@ -63,9 +63,9 @@ const Home = () => {
 
   const handleLearnMoreClick = () => {
     // Scroll to FAQ section
-    const faqSection = document.getElementById('faq');
+    const faqSection = document.getElementById("faq");
     if (faqSection) {
-      faqSection.scrollIntoView({ behavior: 'smooth' });
+      faqSection.scrollIntoView({ behavior: "smooth" });
     }
   };
 
