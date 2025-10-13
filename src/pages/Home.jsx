@@ -6,6 +6,8 @@ const Home = () => {
   const [openFAQ, setOpenFAQ] = useState(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [heroLoaded, setHeroLoaded] = useState(false);
+  const [showEventModal, setShowEventModal] = useState(false);
+  const [showProductModal, setShowProductModal] = useState(false);
 
   useEffect(() => {
     // Hero entrance animation
@@ -44,6 +46,19 @@ const Home = () => {
 
   const toggleFAQ = (index) => {
     setOpenFAQ(openFAQ === index ? null : index);
+  };
+
+  const handleEventDetailClick = () => {
+    setShowEventModal(true);
+  };
+
+  const handleProductDetailClick = () => {
+    setShowProductModal(true);
+  };
+
+  const closeModal = () => {
+    setShowEventModal(false);
+    setShowProductModal(false);
   };
 
   const faqData = [
@@ -316,6 +331,7 @@ const Home = () => {
                     rame!
                   </p>
                   <button
+                    onClick={handleEventDetailClick}
                     className="px-8 py-4 rounded-full border-2 font-bold transition-all duration-300 hover:scale-105 hover:shadow-lg hover:bg-orange-500 hover:text-white hover:border-orange-500"
                     style={{ borderColor: "#FFFFFF", color: "#FFFFFF" }}
                   >
@@ -356,6 +372,7 @@ const Home = () => {
                     kamu makin kece. Update produk baru terus setiap minggu.
                   </p>
                   <button
+                    onClick={handleProductDetailClick}
                     className="px-8 py-4 rounded-full border-2 font-bold transition-all duration-300 hover:scale-105 hover:shadow-lg hover:bg-orange-500 hover:text-white hover:border-orange-500"
                     style={{ borderColor: "#FFFFFF", color: "#FFFFFF" }}
                   >
@@ -644,6 +661,146 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      {/* Event & Tournament Modal */}
+      {showEventModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+          <div className="bg-gray-800 rounded-3xl p-8 max-w-2xl w-full max-h-[90vh] overflow-y-auto border border-gray-700">
+            <div className="flex justify-between items-center mb-6">
+              <h3 className="text-3xl font-black text-white">
+                🎮 Event & Tournament
+              </h3>
+              <button
+                onClick={closeModal}
+                className="w-10 h-10 rounded-full bg-orange-500 hover:bg-orange-600 flex items-center justify-center text-white font-bold transition-colors duration-300"
+              >
+                ×
+              </button>
+            </div>
+            
+            <div className="space-y-6">
+              <div className="bg-gray-700 p-6 rounded-2xl">
+                <h4 className="text-xl font-bold text-white mb-4">🏆 Tournament Roblox</h4>
+                <ul className="space-y-2 text-gray-200">
+                  <li>• Tournament setiap Sabtu & Minggu</li>
+                  <li>• Hadiah Robux & item eksklusif</li>
+                  <li>• Sistem bracket yang fair</li>
+                  <li>• Live streaming di Discord</li>
+                </ul>
+              </div>
+              
+              <div className="bg-gray-700 p-6 rounded-2xl">
+                <h4 className="text-xl font-bold text-white mb-4">📱 Tournament MLBB</h4>
+                <ul className="space-y-2 text-gray-200">
+                  <li>• Tournament setiap Jumat malam</li>
+                  <li>• Hadiah Diamond & skin</li>
+                  <li>• Mode Classic & Rank</li>
+                  <li>• Coaching dari pro player</li>
+                </ul>
+              </div>
+              
+              <div className="bg-gray-700 p-6 rounded-2xl">
+                <h4 className="text-xl font-bold text-white mb-4">🎁 Giveaway Mingguan</h4>
+                <ul className="space-y-2 text-gray-200">
+                  <li>• Robux giveaway setiap Senin</li>
+                  <li>• MLBB Diamond setiap Rabu</li>
+                  <li>• Merchandise eksklusif</li>
+                  <li>• Syarat: aktif di Discord</li>
+                </ul>
+              </div>
+              
+              <div className="bg-gradient-to-r from-orange-500 to-red-500 p-6 rounded-2xl">
+                <h4 className="text-xl font-bold text-white mb-4">🚀 Cara Ikut Event</h4>
+                <p className="text-white mb-4">
+                  Gabung Discord server kita dan cek channel #events untuk info lengkap!
+                </p>
+                <a
+                  href="https://discord.gg/mK26qvZXSY"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block bg-white text-orange-500 px-6 py-3 rounded-full font-bold hover:bg-gray-100 transition-colors duration-300"
+                >
+                  Gabung Discord Sekarang
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Produk Roblox Modal */}
+      {showProductModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+          <div className="bg-gray-800 rounded-3xl p-8 max-w-2xl w-full max-h-[90vh] overflow-y-auto border border-gray-700">
+            <div className="flex justify-between items-center mb-6">
+              <h3 className="text-3xl font-black text-white">
+                👕 Produk Roblox Keren
+              </h3>
+              <button
+                onClick={closeModal}
+                className="w-10 h-10 rounded-full bg-orange-500 hover:bg-orange-600 flex items-center justify-center text-white font-bold transition-colors duration-300"
+              >
+                ×
+              </button>
+            </div>
+            
+            <div className="space-y-6">
+              <div className="bg-gray-700 p-6 rounded-2xl">
+                <h4 className="text-xl font-bold text-white mb-4">🎨 Outfit R6 (Classic)</h4>
+                <ul className="space-y-2 text-gray-200">
+                  <li>• Design retro yang timeless</li>
+                  <li>• Cocok untuk semua avatar</li>
+                  <li>• Harga mulai 50 Robux</li>
+                  <li>• Update koleksi setiap minggu</li>
+                </ul>
+              </div>
+              
+              <div className="bg-gray-700 p-6 rounded-2xl">
+                <h4 className="text-xl font-bold text-white mb-4">🔥 Outfit R15 (Modern)</h4>
+                <ul className="space-y-2 text-gray-200">
+                  <li>• Design modern & trendy</li>
+                  <li>• Detail yang lebih kompleks</li>
+                  <li>• Harga mulai 100 Robux</li>
+                  <li>• Limited edition items</li>
+                </ul>
+              </div>
+              
+              <div className="bg-gray-700 p-6 rounded-2xl">
+                <h4 className="text-xl font-bold text-white mb-4">⭐ Koleksi Eksklusif</h4>
+                <ul className="space-y-2 text-gray-200">
+                  <li>• Cazera Society signature outfit</li>
+                  <li>• Collaboration dengan creator</li>
+                  <li>• Seasonal collection</li>
+                  <li>• Member discount 20%</li>
+                </ul>
+              </div>
+              
+              <div className="bg-gradient-to-r from-orange-500 to-red-500 p-6 rounded-2xl">
+                <h4 className="text-xl font-bold text-white mb-4">🛒 Cara Beli Produk</h4>
+                <p className="text-white mb-4">
+                  Kunjungi grup Roblox kita atau cek channel #products di Discord untuk link langsung!
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <a
+                    href="https://discord.gg/mK26qvZXSY"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block bg-white text-orange-500 px-6 py-3 rounded-full font-bold hover:bg-gray-100 transition-colors duration-300 text-center"
+                  >
+                    Lihat di Discord
+                  </a>
+                  <a
+                    href="/products"
+                    className="inline-block bg-transparent border-2 border-white text-white px-6 py-3 rounded-full font-bold hover:bg-white hover:text-orange-500 transition-colors duration-300 text-center"
+                  >
+                    Lihat Semua Produk
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
