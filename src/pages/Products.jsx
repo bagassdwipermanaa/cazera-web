@@ -3,6 +3,11 @@ import React, { useState, useEffect } from "react";
 const Products = () => {
   const [isVisible, setIsVisible] = useState({});
   const [scrollY, setScrollY] = useState(0);
+  const [previewModal, setPreviewModal] = useState({
+    isOpen: false,
+    product: null,
+    activeImage: 0,
+  });
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,65 +30,43 @@ const Products = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const openPreview = (product) => {
+    setPreviewModal({ isOpen: true, product, activeImage: 0 });
+  };
+
+  const closePreview = () => {
+    setPreviewModal({ isOpen: false, product: null, activeImage: 0 });
+  };
+
+  const setActiveImage = (index) => {
+    setPreviewModal((prev) => ({ ...prev, activeImage: index }));
+  };
+
+  // Array gambar untuk produk Tractopp Polos Cazera
+  const productImages = [
+    "/images/products/tractopp-polos-cazera/main.jpg",
+    "/images/products/tractopp-polos-cazera/preview.jpg",
+    "/images/products/tractopp-polos-cazera/detail1.jpg",
+    "/images/products/tractopp-polos-cazera/detail2.jpg",
+  ];
+
   const products = [
     {
       id: 1,
-      name: "R6 Outfit Collection",
-      category: "Roblox Avatar",
-      price: "500 Robux",
+      name: "Tractopp Polos Cazera",
+      category: "Classic Shirt",
+      price: "5 Robux",
       description:
-        "Koleksi outfit R6 eksklusif dengan design keren dan unik. Perfect untuk karakter Roblox kamu!",
+        "Track top polos Cazera dengan design eksklusif. Shirt putih dengan zipper hitam dan logo CZ yang keren!",
       features: [
         "Design Eksklusif",
-        "High Quality",
-        "Limited Edition",
-        "Compatible R6",
+        "Classic Shirt",
+        "Logo CZ",
+        "Zipper Detail",
       ],
-      image: "/images/products/r6-outfit.jpg",
+      image: "/images/products/tractopp-polos-cazera/main.jpg",
       status: "Available",
-    },
-    {
-      id: 2,
-      name: "R15 Character Pack",
-      category: "Roblox Avatar",
-      price: "750 Robux",
-      description:
-        "Paket karakter R15 lengkap dengan aksesoris dan outfit premium. Bikin karakter kamu makin kece!",
-      features: [
-        "Complete Set",
-        "Premium Quality",
-        "Multiple Styles",
-        "R15 Compatible",
-      ],
-      image: "/images/products/r15-pack.jpg",
-      status: "Available",
-    },
-    {
-      id: 3,
-      name: "Gaming Accessories",
-      category: "Accessories",
-      price: "300 Robux",
-      description:
-        "Aksesoris gaming keren seperti hats, glasses, dan accessories lainnya untuk melengkapi look kamu!",
-      features: ["Trendy Design", "High Quality", "Mix & Match", "Affordable"],
-      image: "/images/products/accessories.jpg",
-      status: "Available",
-    },
-    {
-      id: 4,
-      name: "Limited Edition Bundle",
-      category: "Special Bundle",
-      price: "1200 Robux",
-      description:
-        "Bundle eksklusif dengan semua produk terbaik Cazera Society. Limited time offer!",
-      features: [
-        "All Products",
-        "Exclusive Design",
-        "Limited Time",
-        "Best Value",
-      ],
-      image: "/images/products/bundle.jpg",
-      status: "Limited",
+      robloxLink: "https://www.roblox.com/catalog/105510672472526",
     },
   ];
 
@@ -168,8 +151,8 @@ const Products = () => {
               }`}
               style={{ color: "#FAFAFA" }}
             >
-              Koleksi outfit dan aksesoris Roblox eksklusif dari Cazera Society.
-              Design keren yang bikin karakter kamu makin kece!
+              Produk eksklusif Classic Shirt dari Cazera Society. Design keren
+              yang bikin karakter kamu makin kece!
             </p>
           </div>
         </div>
@@ -217,7 +200,7 @@ const Products = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 justify-items-center">
             {products.map((product, index) => (
               <div
                 key={product.id}
@@ -229,17 +212,35 @@ const Products = () => {
                 style={{ transitionDelay: `${index * 200}ms` }}
               >
                 <div className="bg-gray-800 rounded-2xl shadow-2xl transition-all duration-500 hover:scale-105 hover:shadow-3xl relative overflow-hidden border border-gray-700 hover:border-orange-500">
-                  {/* Product Image Placeholder */}
-                  <div className="h-48 bg-gradient-to-br from-orange-500/20 to-red-500/20 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-16 h-16 bg-orange-500 rounded-full mx-auto mb-4 flex items-center justify-center">
-                        <span className="text-white text-2xl font-bold">
-                          {product.name.charAt(0)}
-                        </span>
+                  {/* Product Image */}
+                  <div className="h-64 bg-gradient-to-br from-gray-700 to-gray-800 flex items-center justify-center relative overflow-hidden rounded-t-2xl">
+                    {product.image ? (
+                      <img
+                        src={product.image}
+                        alt={product.name}
+                        className="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform duration-500"
+                        style={{ width: "auto", height: "auto" }}
+                        onError={(e) => {
+                          e.target.style.display = "none";
+                          e.target.nextSibling.style.display = "flex";
+                        }}
+                      />
+                    ) : null}
+                    <div
+                      className={`absolute inset-0 flex items-center justify-center ${
+                        product.image ? "hidden" : "flex"
+                      }`}
+                    >
+                      <div className="text-center">
+                        <div className="w-16 h-16 bg-orange-500 rounded-full mx-auto mb-4 flex items-center justify-center">
+                          <span className="text-white text-2xl font-bold">
+                            {product.name.charAt(0)}
+                          </span>
+                        </div>
+                        <p className="text-white text-sm font-semibold">
+                          {product.category}
+                        </p>
                       </div>
-                      <p className="text-white text-sm font-semibold">
-                        {product.category}
-                      </p>
                     </div>
                   </div>
 
@@ -287,10 +288,18 @@ const Products = () => {
 
                     {/* Action Buttons */}
                     <div className="flex gap-2">
-                      <button className="flex-1 px-4 py-2 bg-orange-500 text-white rounded-lg font-semibold hover:bg-orange-600 transition-colors duration-300 text-sm">
+                      <a
+                        href={product.robloxLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1 px-4 py-2 bg-orange-500 text-white rounded-lg font-semibold hover:bg-orange-600 transition-colors duration-300 text-sm text-center"
+                      >
                         Beli Sekarang
-                      </button>
-                      <button className="px-4 py-2 border border-orange-500 text-orange-400 rounded-lg font-semibold hover:bg-orange-500 hover:text-white transition-all duration-300 text-sm">
+                      </a>
+                      <button
+                        onClick={() => openPreview(product)}
+                        className="px-4 py-2 border border-orange-500 text-orange-400 rounded-lg font-semibold hover:bg-orange-500 hover:text-white transition-all duration-300 text-sm"
+                      >
                         Preview
                       </button>
                     </div>
@@ -384,6 +393,111 @@ const Products = () => {
           </div>
         </div>
       </section>
+
+      {/* Preview Modal */}
+      {previewModal.isOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4">
+          <div className="bg-gray-800 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden">
+            {/* Modal Header */}
+            <div className="flex justify-between items-center p-6 border-b border-gray-700">
+              <h3 className="text-2xl font-bold text-white">
+                Preview: {previewModal.product?.name}
+              </h3>
+              <button
+                onClick={closePreview}
+                className="text-gray-400 hover:text-white text-2xl font-bold transition-colors duration-300"
+              >
+                ×
+              </button>
+            </div>
+
+            {/* Modal Content */}
+            <div className="p-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {/* Image Section */}
+                <div className="space-y-4">
+                  <div className="bg-gray-700 rounded-xl p-4">
+                    <img
+                      src={productImages[previewModal.activeImage]}
+                      alt={previewModal.product?.name}
+                      className="w-full h-64 object-contain rounded-lg"
+                    />
+                  </div>
+
+                  {/* Additional Images */}
+                  <div className="grid grid-cols-4 gap-2">
+                    {productImages.map((image, index) => (
+                      <div
+                        key={index}
+                        onClick={() => setActiveImage(index)}
+                        className={`bg-gray-700 rounded-lg p-2 cursor-pointer transition-all duration-300 hover:bg-gray-600 ${
+                          previewModal.activeImage === index
+                            ? "ring-2 ring-orange-500 bg-gray-600"
+                            : ""
+                        }`}
+                      >
+                        <img
+                          src={image}
+                          alt={`Preview ${index + 1}`}
+                          className="w-full h-20 object-contain rounded"
+                          onError={(e) => (e.target.style.display = "none")}
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Product Details */}
+                <div className="space-y-4">
+                  <div className="flex justify-between items-start">
+                    <span className="px-3 py-1 bg-green-500/20 text-green-400 rounded-full text-sm font-semibold">
+                      {previewModal.product?.status}
+                    </span>
+                    <span className="text-orange-400 font-bold text-xl">
+                      {previewModal.product?.price}
+                    </span>
+                  </div>
+
+                  <h4 className="text-xl font-bold text-white">
+                    {previewModal.product?.name}
+                  </h4>
+
+                  <p className="text-gray-300 leading-relaxed">
+                    {previewModal.product?.description}
+                  </p>
+
+                  <div>
+                    <h5 className="text-sm font-semibold text-white mb-2">
+                      Features:
+                    </h5>
+                    <div className="flex flex-wrap gap-2">
+                      {previewModal.product?.features.map((feature, idx) => (
+                        <span
+                          key={idx}
+                          className="px-3 py-1 bg-orange-500/20 text-orange-400 text-sm rounded-full"
+                        >
+                          {feature}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="pt-4">
+                    <a
+                      href={previewModal.product?.robloxLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full px-6 py-3 bg-orange-500 text-white rounded-lg font-semibold hover:bg-orange-600 transition-colors duration-300 text-center block"
+                    >
+                      Beli Sekarang di Roblox
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
