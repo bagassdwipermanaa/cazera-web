@@ -143,6 +143,45 @@ const Gallery = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Gallery Item 1 */}
             <div className="bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <div className="h-64 bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center">
+                <div className="text-center text-white">
+                  <svg
+                    className="w-16 h-16 mx-auto mb-4"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                  </svg>
+                  <h3 className="text-xl font-semibold">
+                    🏆 Tournament Roblox
+                  </h3>
+                  <p className="text-sm opacity-90">Weekly Competition</p>
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-lg font-semibold text-white mb-2">
+                  Roblox Weekly Tournament
+                </h3>
+                <p className="text-gray-300 text-sm">
+                  Tournament Roblox setiap Sabtu & Minggu dengan hadiah Robux
+                  dan item eksklusif. Sistem bracket yang fair dan live
+                  streaming di Discord.
+                </p>
+                <div className="mt-4 flex items-center text-sm text-gray-500">
+                  <svg
+                    className="w-4 h-4 mr-2"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                  </svg>
+                  50+ Players
+                </div>
+              </div>
+            </div>
+
+            {/* Gallery Item 2 */}
+            <div className="bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
               <div className="h-64 bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
                 <div className="text-center text-white">
                   <svg
@@ -152,17 +191,18 @@ const Gallery = () => {
                   >
                     <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
                   </svg>
-                  <h3 className="text-xl font-semibold">Workshop Coding</h3>
-                  <p className="text-sm opacity-90">Belajar bersama</p>
+                  <h3 className="text-xl font-semibold">📱 Tournament MLBB</h3>
+                  <p className="text-sm opacity-90">Friday Night Battle</p>
                 </div>
               </div>
               <div className="p-6">
                 <h3 className="text-lg font-semibold text-white mb-2">
-                  Workshop React Development
+                  MLBB Friday Tournament
                 </h3>
                 <p className="text-gray-300 text-sm">
-                  Workshop intensif belajar React bersama mentor berpengalaman.
-                  Peserta belajar dari dasar hingga membuat aplikasi real.
+                  Tournament Mobile Legends setiap Jumat malam dengan hadiah
+                  Diamond dan skin eksklusif. Mode Classic & Rank dengan
+                  coaching dari pro player.
                 </p>
                 <div className="mt-4 flex items-center text-sm text-gray-500">
                   <svg
@@ -172,160 +212,14 @@ const Gallery = () => {
                   >
                     <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
                   </svg>
-                  25 Peserta
-                </div>
-              </div>
-            </div>
-
-            {/* Gallery Item 2 */}
-            <div className="bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
-              <div className="h-64 bg-gradient-to-br from-green-500 to-teal-600 flex items-center justify-center">
-                <div className="text-center text-white">
-                  <svg
-                    className="w-16 h-16 mx-auto mb-4"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                  </svg>
-                  <h3 className="text-xl font-semibold">Networking Event</h3>
-                  <p className="text-sm opacity-90">Koneksi & kolaborasi</p>
-                </div>
-              </div>
-              <div className="p-6">
-                <h3 className="text-lg font-semibold text-white mb-2">
-                  Tech Meetup 2024
-                </h3>
-                <p className="text-gray-300 text-sm">
-                  Acara networking untuk developer dan tech enthusiast. Berbagi
-                  pengalaman dan membangun koneksi profesional.
-                </p>
-                <div className="mt-4 flex items-center text-sm text-gray-500">
-                  <svg
-                    className="w-4 h-4 mr-2"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                  </svg>
-                  150+ Peserta
+                  30+ Teams
                 </div>
               </div>
             </div>
 
             {/* Gallery Item 3 */}
             <div className="bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
-              <div className="h-64 bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center">
-                <div className="text-center text-white">
-                  <svg
-                    className="w-16 h-16 mx-auto mb-4"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                  </svg>
-                  <h3 className="text-xl font-semibold">Hackathon</h3>
-                  <p className="text-sm opacity-90">Inovasi & kreativitas</p>
-                </div>
-              </div>
-              <div className="p-6">
-                <h3 className="text-lg font-semibold text-white mb-2">
-                  Cazera Hackathon
-                </h3>
-                <p className="text-gray-300 text-sm">
-                  48 jam hackathon untuk menciptakan solusi inovatif. Tim
-                  terbaik mendapatkan mentorship dan funding.
-                </p>
-                <div className="mt-4 flex items-center text-sm text-gray-500">
-                  <svg
-                    className="w-4 h-4 mr-2"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                  </svg>
-                  12 Tim
-                </div>
-              </div>
-            </div>
-
-            {/* Gallery Item 4 */}
-            <div className="bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
-              <div className="h-64 bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center">
-                <div className="text-center text-white">
-                  <svg
-                    className="w-16 h-16 mx-auto mb-4"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" />
-                  </svg>
-                  <h3 className="text-xl font-semibold">Mentorship</h3>
-                  <p className="text-sm opacity-90">Guidance & support</p>
-                </div>
-              </div>
-              <div className="p-6">
-                <h3 className="text-lg font-semibold text-white mb-2">
-                  1-on-1 Mentorship
-                </h3>
-                <p className="text-gray-300 text-sm">
-                  Program mentorship personal untuk membantu member
-                  mengembangkan skill dan mencapai goals mereka.
-                </p>
-                <div className="mt-4 flex items-center text-sm text-gray-500">
-                  <svg
-                    className="w-4 h-4 mr-2"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                  </svg>
-                  50+ Mentees
-                </div>
-              </div>
-            </div>
-
-            {/* Gallery Item 5 */}
-            <div className="bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
-              <div className="h-64 bg-gradient-to-br from-indigo-500 to-blue-600 flex items-center justify-center">
-                <div className="text-center text-white">
-                  <svg
-                    className="w-16 h-16 mx-auto mb-4"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                  </svg>
-                  <h3 className="text-xl font-semibold">Award Night</h3>
-                  <p className="text-sm opacity-90">
-                    Recognition & celebration
-                  </p>
-                </div>
-              </div>
-              <div className="p-6">
-                <h3 className="text-lg font-semibold text-white mb-2">
-                  Annual Awards
-                </h3>
-                <p className="text-gray-300 text-sm">
-                  Malam penghargaan untuk member terbaik tahun ini.
-                  Mengapresiasi kontribusi dan pencapaian luar biasa.
-                </p>
-                <div className="mt-4 flex items-center text-sm text-gray-500">
-                  <svg
-                    className="w-4 h-4 mr-2"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                  </svg>
-                  10 Awardees
-                </div>
-              </div>
-            </div>
-
-            {/* Gallery Item 6 */}
-            <div className="bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
-              <div className="h-64 bg-gradient-to-br from-teal-500 to-cyan-600 flex items-center justify-center">
+              <div className="h-64 bg-gradient-to-br from-yellow-500 to-orange-600 flex items-center justify-center">
                 <div className="text-center text-white">
                   <svg
                     className="w-16 h-16 mx-auto mb-4"
@@ -334,17 +228,17 @@ const Gallery = () => {
                   >
                     <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
                   </svg>
-                  <h3 className="text-xl font-semibold">Community Service</h3>
-                  <p className="text-sm opacity-90">Giving back</p>
+                  <h3 className="text-xl font-semibold">🎁 Weekly Giveaway</h3>
+                  <p className="text-sm opacity-90">Free Prizes</p>
                 </div>
               </div>
               <div className="p-6">
                 <h3 className="text-lg font-semibold text-white mb-2">
-                  Tech for Good
+                  Weekly Giveaway Event
                 </h3>
                 <p className="text-gray-300 text-sm">
-                  Program community service menggunakan teknologi untuk membantu
-                  masyarakat dan organisasi non-profit.
+                  Giveaway Robux setiap Senin dan Diamond MLBB setiap Rabu. Plus
+                  merchandise eksklusif untuk member aktif di Discord.
                 </p>
                 <div className="mt-4 flex items-center text-sm text-gray-500">
                   <svg
@@ -354,7 +248,120 @@ const Gallery = () => {
                   >
                     <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
                   </svg>
-                  5 Projects
+                  200+ Winners
+                </div>
+              </div>
+            </div>
+
+            {/* Gallery Item 4 */}
+            <div className="bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <div className="h-64 bg-gradient-to-br from-green-500 to-teal-600 flex items-center justify-center">
+                <div className="text-center text-white">
+                  <svg
+                    className="w-16 h-16 mx-auto mb-4"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                  </svg>
+                  <h3 className="text-xl font-semibold">👕 Roblox Products</h3>
+                  <p className="text-sm opacity-90">Exclusive Outfits</p>
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-lg font-semibold text-white mb-2">
+                  Cazera Exclusive Outfits
+                </h3>
+                <p className="text-gray-300 text-sm">
+                  Outfit R6 & R15 eksklusif dengan design keren yang bikin
+                  karakter kamu makin kece. Update produk baru setiap minggu
+                  dengan member discount 20%.
+                </p>
+                <div className="mt-4 flex items-center text-sm text-gray-500">
+                  <svg
+                    className="w-4 h-4 mr-2"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                  </svg>
+                  100+ Items
+                </div>
+              </div>
+            </div>
+
+            {/* Gallery Item 5 */}
+            <div className="bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <div className="h-64 bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center">
+                <div className="text-center text-white">
+                  <svg
+                    className="w-16 h-16 mx-auto mb-4"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                  </svg>
+                  <h3 className="text-xl font-semibold">🎉 Community Events</h3>
+                  <p className="text-sm opacity-90">Fun Activities</p>
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-lg font-semibold text-white mb-2">
+                  Community Fun Events
+                </h3>
+                <p className="text-gray-300 text-sm">
+                  Event seru seperti game night, movie night, dan virtual
+                  hangout. Tempat yang perfect untuk kenalan dan main bareng
+                  dengan teman-teman komunitas.
+                </p>
+                <div className="mt-4 flex items-center text-sm text-gray-500">
+                  <svg
+                    className="w-4 h-4 mr-2"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                  </svg>
+                  500+ Members
+                </div>
+              </div>
+            </div>
+
+            {/* Gallery Item 6 */}
+            <div className="bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <div className="h-64 bg-gradient-to-br from-indigo-500 to-blue-600 flex items-center justify-center">
+                <div className="text-center text-white">
+                  <svg
+                    className="w-16 h-16 mx-auto mb-4"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0a12.64 12.64 0 0 0-.617-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.078.078 0 0 0 .084-.028a14.09 14.09 0 0 0 1.226-1.994a.076.076 0 0 0-.041-.106a13.107 13.107 0 0 1-1.872-.892a.077.077 0 0 1-.008-.128a10.2 10.2 0 0 0 .372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127a12.299 12.299 0 0 1-1.873.892a.077.077 0 0 0-.041.106a14.09 14.09 0 0 0 1.226 1.994a.078.078 0 0 0 .084.028a19.9 19.9 0 0 0 5.993-3.03a.082.082 0 0 0 .031-.057c.419-4.477-.566-9.011-2.674-13.66a.07.07 0 0 0-.032-.027zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z" />
+                  </svg>
+                  <h3 className="text-xl font-semibold">
+                    💬 Discord Community
+                  </h3>
+                  <p className="text-sm opacity-90">Active Chat</p>
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-lg font-semibold text-white mb-2">
+                  Discord Server Community
+                </h3>
+                <p className="text-gray-300 text-sm">
+                  Server Discord aktif dengan channel khusus untuk Roblox, MLBB,
+                  dan general chat. Tempat terbaik untuk kenalan dan main bareng
+                  dengan member komunitas.
+                </p>
+                <div className="mt-4 flex items-center text-sm text-gray-500">
+                  <svg
+                    className="w-4 h-4 mr-2"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                  </svg>
+                  1000+ Members
                 </div>
               </div>
             </div>
@@ -362,10 +369,10 @@ const Gallery = () => {
 
           {/* Call to Action */}
           <div className="text-center mt-16">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">
+            <h3 className="text-2xl font-bold text-white mb-4">
               Ingin Bergabung dengan Keseruan Kami?
             </h3>
-            <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
+            <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
               Jangan lewatkan momen-momen seru berikutnya. Bergabunglah dengan
               komunitas kami dan jadilah bagian dari cerita sukses berikutnya.
             </p>
@@ -382,14 +389,14 @@ const Gallery = () => {
               <a
                 href="/contact"
                 className="border-2 text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-gray-800 transition-colors duration-200"
-                style={{ borderColor: "#212121", color: "#212121" }}
+                style={{ borderColor: "#FFFFFF", color: "#FFFFFF" }}
                 onMouseEnter={(e) => {
-                  e.target.style.backgroundColor = "#212121";
-                  e.target.style.color = "#FFFFFF";
+                  e.target.style.backgroundColor = "#FFFFFF";
+                  e.target.style.color = "#212121";
                 }}
                 onMouseLeave={(e) => {
                   e.target.style.backgroundColor = "transparent";
-                  e.target.style.color = "#212121";
+                  e.target.style.color = "#FFFFFF";
                 }}
               >
                 Contact Us
