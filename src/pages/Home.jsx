@@ -61,6 +61,14 @@ const Home = () => {
     setShowProductModal(false);
   };
 
+  const handleLearnMoreClick = () => {
+    // Scroll to FAQ section
+    const faqSection = document.getElementById('faq');
+    if (faqSection) {
+      faqSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   const faqData = [
     {
       question: "Gimana cara gabung ke komunitas Cazera Society?",
@@ -503,6 +511,7 @@ const Home = () => {
               <div className="absolute inset-0 bg-gradient-to-r from-gray-100 to-gray-200 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </a>
             <button
+              onClick={handleLearnMoreClick}
               className="group px-8 py-4 rounded-full font-black text-lg border-2 transition-all duration-500 hover:scale-105 hover:shadow-xl relative overflow-hidden"
               style={{ borderColor: "#FFFFFF", color: "#FFFFFF" }}
             >
@@ -677,10 +686,12 @@ const Home = () => {
                 ×
               </button>
             </div>
-            
+
             <div className="space-y-6">
               <div className="bg-gray-700 p-6 rounded-2xl">
-                <h4 className="text-xl font-bold text-white mb-4">🏆 Tournament Roblox</h4>
+                <h4 className="text-xl font-bold text-white mb-4">
+                  🏆 Tournament Roblox
+                </h4>
                 <ul className="space-y-2 text-gray-200">
                   <li>• Tournament setiap Sabtu & Minggu</li>
                   <li>• Hadiah Robux & item eksklusif</li>
@@ -688,9 +699,11 @@ const Home = () => {
                   <li>• Live streaming di Discord</li>
                 </ul>
               </div>
-              
+
               <div className="bg-gray-700 p-6 rounded-2xl">
-                <h4 className="text-xl font-bold text-white mb-4">📱 Tournament MLBB</h4>
+                <h4 className="text-xl font-bold text-white mb-4">
+                  📱 Tournament MLBB
+                </h4>
                 <ul className="space-y-2 text-gray-200">
                   <li>• Tournament setiap Jumat malam</li>
                   <li>• Hadiah Diamond & skin</li>
@@ -698,9 +711,11 @@ const Home = () => {
                   <li>• Coaching dari pro player</li>
                 </ul>
               </div>
-              
+
               <div className="bg-gray-700 p-6 rounded-2xl">
-                <h4 className="text-xl font-bold text-white mb-4">🎁 Giveaway Mingguan</h4>
+                <h4 className="text-xl font-bold text-white mb-4">
+                  🎁 Giveaway Mingguan
+                </h4>
                 <ul className="space-y-2 text-gray-200">
                   <li>• Robux giveaway setiap Senin</li>
                   <li>• MLBB Diamond setiap Rabu</li>
@@ -708,11 +723,14 @@ const Home = () => {
                   <li>• Syarat: aktif di Discord</li>
                 </ul>
               </div>
-              
+
               <div className="bg-gradient-to-r from-orange-500 to-red-500 p-6 rounded-2xl">
-                <h4 className="text-xl font-bold text-white mb-4">🚀 Cara Ikut Event</h4>
+                <h4 className="text-xl font-bold text-white mb-4">
+                  🚀 Cara Ikut Event
+                </h4>
                 <p className="text-white mb-4">
-                  Gabung Discord server kita dan cek channel #events untuk info lengkap!
+                  Gabung Discord server kita dan cek channel #events untuk info
+                  lengkap!
                 </p>
                 <a
                   href="https://discord.gg/mK26qvZXSY"
@@ -743,10 +761,12 @@ const Home = () => {
                 ×
               </button>
             </div>
-            
+
             <div className="space-y-6">
               <div className="bg-gray-700 p-6 rounded-2xl">
-                <h4 className="text-xl font-bold text-white mb-4">🎨 Outfit R6 (Classic)</h4>
+                <h4 className="text-xl font-bold text-white mb-4">
+                  🎨 Outfit R6 (Classic)
+                </h4>
                 <ul className="space-y-2 text-gray-200">
                   <li>• Design retro yang timeless</li>
                   <li>• Cocok untuk semua avatar</li>
@@ -754,9 +774,11 @@ const Home = () => {
                   <li>• Update koleksi setiap minggu</li>
                 </ul>
               </div>
-              
+
               <div className="bg-gray-700 p-6 rounded-2xl">
-                <h4 className="text-xl font-bold text-white mb-4">🔥 Outfit R15 (Modern)</h4>
+                <h4 className="text-xl font-bold text-white mb-4">
+                  🔥 Outfit R15 (Modern)
+                </h4>
                 <ul className="space-y-2 text-gray-200">
                   <li>• Design modern & trendy</li>
                   <li>• Detail yang lebih kompleks</li>
@@ -764,9 +786,11 @@ const Home = () => {
                   <li>• Limited edition items</li>
                 </ul>
               </div>
-              
+
               <div className="bg-gray-700 p-6 rounded-2xl">
-                <h4 className="text-xl font-bold text-white mb-4">⭐ Koleksi Eksklusif</h4>
+                <h4 className="text-xl font-bold text-white mb-4">
+                  ⭐ Koleksi Eksklusif
+                </h4>
                 <ul className="space-y-2 text-gray-200">
                   <li>• Cazera Society signature outfit</li>
                   <li>• Collaboration dengan creator</li>
@@ -774,11 +798,14 @@ const Home = () => {
                   <li>• Member discount 20%</li>
                 </ul>
               </div>
-              
+
               <div className="bg-gradient-to-r from-orange-500 to-red-500 p-6 rounded-2xl">
-                <h4 className="text-xl font-bold text-white mb-4">🛒 Cara Beli Produk</h4>
+                <h4 className="text-xl font-bold text-white mb-4">
+                  🛒 Cara Beli Produk
+                </h4>
                 <p className="text-white mb-4">
-                  Kunjungi grup Roblox kita atau cek channel #products di Discord untuk link langsung!
+                  Kunjungi grup Roblox kita atau cek channel #products di
+                  Discord untuk link langsung!
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <a
