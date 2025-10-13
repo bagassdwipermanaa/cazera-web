@@ -1,11 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import logoImage from "../assets/logo-cazera.png";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -42,8 +43,10 @@ const Navbar = () => {
             <div className="flex items-center space-x-6">
               <Link
                 to="/"
-                className={`px-2 py-1 rounded-full text-sm font-medium transition-all duration-300 ${
-                  isScrolled
+                className={`px-3 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                  location.pathname === "/"
+                    ? "bg-white text-gray-800"
+                    : isScrolled
                     ? "text-white hover:bg-white/20"
                     : "text-white hover:bg-white/10"
                 }`}
@@ -52,8 +55,10 @@ const Navbar = () => {
               </Link>
               <Link
                 to="/about"
-                className={`px-2 py-1 rounded-full text-sm font-medium transition-all duration-300 ${
-                  isScrolled
+                className={`px-3 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                  location.pathname === "/about"
+                    ? "bg-white text-gray-800"
+                    : isScrolled
                     ? "text-white hover:bg-white/20"
                     : "text-white hover:bg-white/10"
                 }`}
@@ -62,8 +67,10 @@ const Navbar = () => {
               </Link>
               <Link
                 to="/products"
-                className={`px-2 py-1 rounded-full text-sm font-medium transition-all duration-300 ${
-                  isScrolled
+                className={`px-3 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                  location.pathname === "/products"
+                    ? "bg-white text-gray-800"
+                    : isScrolled
                     ? "text-white hover:bg-white/20"
                     : "text-white hover:bg-white/10"
                 }`}
@@ -72,8 +79,10 @@ const Navbar = () => {
               </Link>
               <Link
                 to="/gallery"
-                className={`px-2 py-1 rounded-full text-sm font-medium transition-all duration-300 ${
-                  isScrolled
+                className={`px-3 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                  location.pathname === "/gallery"
+                    ? "bg-white text-gray-800"
+                    : isScrolled
                     ? "text-white hover:bg-white/20"
                     : "text-white hover:bg-white/10"
                 }`}
@@ -82,8 +91,10 @@ const Navbar = () => {
               </Link>
               <Link
                 to="/contact"
-                className={`px-2 py-1 rounded-full text-sm font-medium transition-all duration-300 ${
-                  isScrolled
+                className={`px-3 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                  location.pathname === "/contact"
+                    ? "bg-white text-gray-800"
+                    : isScrolled
                     ? "text-white hover:bg-white/20"
                     : "text-white hover:bg-white/10"
                 }`}
@@ -141,35 +152,55 @@ const Navbar = () => {
             >
               <Link
                 to="/"
-                className="block px-4 py-3 rounded-full text-white hover:bg-white/20 transition-all duration-300"
+                className={`block px-4 py-3 rounded-full transition-all duration-300 ${
+                  location.pathname === "/"
+                    ? "bg-white text-gray-800"
+                    : "text-white hover:bg-white/20"
+                }`}
                 onClick={() => setIsMenuOpen(false)}
               >
                 Home
               </Link>
               <Link
                 to="/about"
-                className="block px-4 py-3 rounded-full text-white hover:bg-white/20 transition-all duration-300"
+                className={`block px-4 py-3 rounded-full transition-all duration-300 ${
+                  location.pathname === "/about"
+                    ? "bg-white text-gray-800"
+                    : "text-white hover:bg-white/20"
+                }`}
                 onClick={() => setIsMenuOpen(false)}
               >
                 About
               </Link>
               <Link
                 to="/products"
-                className="block px-4 py-3 rounded-full text-white hover:bg-white/20 transition-all duration-300"
+                className={`block px-4 py-3 rounded-full transition-all duration-300 ${
+                  location.pathname === "/products"
+                    ? "bg-white text-gray-800"
+                    : "text-white hover:bg-white/20"
+                }`}
                 onClick={() => setIsMenuOpen(false)}
               >
                 Products
               </Link>
               <Link
                 to="/gallery"
-                className="block px-4 py-3 rounded-full text-white hover:bg-white/20 transition-all duration-300"
+                className={`block px-4 py-3 rounded-full transition-all duration-300 ${
+                  location.pathname === "/gallery"
+                    ? "bg-white text-gray-800"
+                    : "text-white hover:bg-white/20"
+                }`}
                 onClick={() => setIsMenuOpen(false)}
               >
                 Gallery
               </Link>
               <Link
                 to="/contact"
-                className="block px-4 py-3 rounded-full text-white hover:bg-white/20 transition-all duration-300"
+                className={`block px-4 py-3 rounded-full transition-all duration-300 ${
+                  location.pathname === "/contact"
+                    ? "bg-white text-gray-800"
+                    : "text-white hover:bg-white/20"
+                }`}
                 onClick={() => setIsMenuOpen(false)}
               >
                 Contact
