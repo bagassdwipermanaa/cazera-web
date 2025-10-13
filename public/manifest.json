@@ -8,8 +8,7 @@
   "theme_color": "#212121",
   "icons": [
     {
-      "src": "/logo-cazera-192.png",
-      "sizes": "192x192",
+      "src": "/logo-cazera.png",
       "type": "image/png"
     }
   ]

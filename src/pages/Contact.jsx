@@ -9,6 +9,8 @@ const Contact = () => {
     subject: "",
     message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null); // 'success', 'error', null
 
   useEffect(() => {
     const handleScroll = () => {
@@ -36,6 +38,58 @@ const Contact = () => {
       ...formData,
       [e.target.name]: e.target.value,
     });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+
+    try {
+      // Check if we're in development mode
+      const isDevelopment =
+        window.location.hostname === "localhost" ||
+        window.location.hostname === "127.0.0.1";
+
+      if (isDevelopment) {
+        // Simulate form submission in development
+        await new Promise((resolve) => setTimeout(resolve, 1500)); // Simulate network delay
+        setSubmitStatus("success");
+        setFormData({
+          name: "",
+          email: "",
+          subject: "",
+          message: "",
+        });
+      } else {
+        // Production mode - use Netlify Forms
+        const form = e.target;
+        const formDataToSend = new FormData(form);
+
+        const response = await fetch("/", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: new URLSearchParams(formDataToSend).toString(),
+        });
+
+        if (response.ok) {
+          setSubmitStatus("success");
+          setFormData({
+            name: "",
+            email: "",
+            subject: "",
+            message: "",
+          });
+        } else {
+          setSubmitStatus("error");
+        }
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      setSubmitStatus("error");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -161,7 +215,7 @@ const Contact = () => {
                 action="/"
                 data-netlify="true"
                 data-netlify-honeypot="bot-field"
-                data-netlify-redirect="/contact"
+                onSubmit={handleSubmit}
                 className="space-y-6"
               >
                 {/* Hidden field untuk Netlify */}
@@ -250,12 +304,74 @@ const Contact = () => {
 
                 <button
                   type="submit"
-                  className="w-full text-white px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-all duration-200"
+                  disabled={isSubmitting}
+                  className={`w-full text-white px-8 py-3 rounded-lg font-semibold transition-all duration-200 ${
+                    isSubmitting
+                      ? "opacity-50 cursor-not-allowed"
+                      : "hover:opacity-90"
+                  }`}
                   style={{ backgroundColor: "#FF7E21" }}
                 >
-                  Send Message
+                  {isSubmitting ? "Mengirim..." : "Send Message"}
                 </button>
               </form>
+
+              {/* Notification Messages */}
+              {submitStatus === "success" && (
+                <div className="mt-6 p-4 bg-green-500 bg-opacity-20 border border-green-500 rounded-lg">
+                  <div className="flex items-center">
+                    <svg
+                      className="w-5 h-5 text-green-400 mr-3"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    <div>
+                      <h4 className="text-green-400 font-semibold">
+                        Pesan Berhasil Dikirim!
+                      </h4>
+                      <p className="text-green-300 text-sm">
+                        {window.location.hostname === "localhost" ||
+                        window.location.hostname === "127.0.0.1"
+                          ? "Simulasi berhasil! Di production, pesan akan dikirim ke Netlify Forms."
+                          : "Terima kasih! Kami akan merespons dalam 24 jam."}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {submitStatus === "error" && (
+                <div className="mt-6 p-4 bg-red-500 bg-opacity-20 border border-red-500 rounded-lg">
+                  <div className="flex items-center">
+                    <svg
+                      className="w-5 h-5 text-red-400 mr-3"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    <div>
+                      <h4 className="text-red-400 font-semibold">
+                        Gagal Mengirim Pesan
+                      </h4>
+                      <p className="text-red-300 text-sm">
+                        Terjadi kesalahan. Silakan coba lagi atau hubungi kami
+                        melalui Discord.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
 
             {/* Contact Information */}
