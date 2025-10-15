@@ -287,26 +287,204 @@ const Products = () => {
                     </div>
 
                     {/* Action Buttons */}
-                    <div className="flex gap-2">
-                      <a
-                        href={product.robloxLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex-1 px-4 py-2 bg-orange-500 text-white rounded-lg font-semibold hover:bg-orange-600 transition-colors duration-300 text-sm text-center"
-                      >
-                        Beli Sekarang
-                      </a>
-                      <button
-                        onClick={() => openPreview(product)}
-                        className="px-4 py-2 border border-orange-500 text-orange-400 rounded-lg font-semibold hover:bg-orange-500 hover:text-white transition-all duration-300 text-sm"
-                      >
-                        Preview
-                      </button>
+                    <div className="space-y-3">
+                      <div className="flex gap-2">
+                        <a
+                          href={product.robloxLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex-1 px-4 py-2 bg-orange-500 text-white rounded-lg font-semibold hover:bg-orange-600 transition-colors duration-300 text-sm text-center"
+                        >
+                          Beli Sekarang
+                        </a>
+                        <button
+                          onClick={() => openPreview(product)}
+                          className="px-4 py-2 border border-orange-500 text-orange-400 rounded-lg font-semibold hover:bg-orange-500 hover:text-white transition-all duration-300 text-sm"
+                        >
+                          Preview
+                        </button>
+                      </div>
+
+                      {/* Quick Info */}
+                      <div className="bg-gray-700/50 rounded-lg p-3">
+                        <div className="flex items-center justify-between text-xs text-gray-400 mb-2">
+                          <span>💡 Info:</span>
+                          <span>Lihat aturan di bawah</span>
+                        </div>
+                        <div className="flex items-center justify-between text-xs">
+                          <span className="text-blue-400">💬 Discord:</span>
+                          <a
+                            href="https://discord.gg/mK26qvZXSY"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-blue-400 hover:text-blue-300 transition-colors"
+                          >
+                            Join Server
+                          </a>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Rules Section */}
+      <section
+        className="py-20 relative animate-on-scroll"
+        id="rules"
+        style={{ backgroundColor: "#1A1A1A" }}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div
+            className={`text-center mb-16 transition-all duration-1000 ${
+              isVisible.rules
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-10"
+            }`}
+          >
+            <div className="mb-6">
+              <span
+                className="inline-block px-4 py-2 rounded-full text-sm font-semibold mb-4"
+                style={{ backgroundColor: "#FF7E21", color: "#FFFFFF" }}
+              >
+                📋 Aturan Pembelian
+              </span>
+            </div>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-white mb-6">
+              Cara <span style={{ color: "#FF7E21" }}>Membeli</span> Produk
+            </h2>
+            <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+              Ikuti langkah-langkah berikut untuk membeli produk kami
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Purchase Rules */}
+            <div
+              className={`bg-gray-800 rounded-2xl p-8 border border-gray-700 transition-all duration-1000 ${
+                isVisible.rules
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-10"
+              }`}
+              style={{ transitionDelay: "200ms" }}
+            >
+              <div className="flex items-center mb-6">
+                <div
+                  className="w-12 h-12 rounded-full flex items-center justify-center mr-4"
+                  style={{ backgroundColor: "#FF7E21" }}
+                >
+                  <span className="text-white text-xl">🛒</span>
+                </div>
+                <h3 className="text-2xl font-bold text-white">
+                  Aturan Pembelian
+                </h3>
+              </div>
+
+              <div className="space-y-4">
+                <div className="flex items-start">
+                  <div className="w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center mr-3 mt-1 flex-shrink-0">
+                    <span className="text-white text-xs font-bold">1</span>
+                  </div>
+                  <p className="text-gray-300 leading-relaxed">
+                    Klik tombol{" "}
+                    <span className="text-orange-400 font-semibold">
+                      "Beli Sekarang"
+                    </span>{" "}
+                    pada produk yang ingin dibeli
+                  </p>
+                </div>
+
+                <div className="flex items-start">
+                  <div className="w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center mr-3 mt-1 flex-shrink-0">
+                    <span className="text-white text-xs font-bold">2</span>
+                  </div>
+                  <p className="text-gray-300 leading-relaxed">
+                    Anda akan diarahkan ke halaman Roblox untuk menyelesaikan
+                    pembelian
+                  </p>
+                </div>
+
+                <div className="flex items-start">
+                  <div className="w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center mr-3 mt-1 flex-shrink-0">
+                    <span className="text-white text-xs font-bold">3</span>
+                  </div>
+                  <p className="text-gray-300 leading-relaxed">
+                    Pastikan Anda memiliki Robux yang cukup untuk membeli produk
+                  </p>
+                </div>
+
+                <div className="flex items-start">
+                  <div className="w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center mr-3 mt-1 flex-shrink-0">
+                    <span className="text-white text-xs font-bold">4</span>
+                  </div>
+                  <p className="text-gray-300 leading-relaxed">
+                    Setelah pembelian selesai, produk akan langsung tersedia di
+                    inventory Roblox Anda
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Discord Info */}
+            <div
+              className={`bg-gray-800 rounded-2xl p-8 border border-gray-700 transition-all duration-1000 ${
+                isVisible.rules
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-10"
+              }`}
+              style={{ transitionDelay: "400ms" }}
+            >
+              <div className="flex items-center mb-6">
+                <div
+                  className="w-12 h-12 rounded-full flex items-center justify-center mr-4"
+                  style={{ backgroundColor: "#5865F2" }}
+                >
+                  <span className="text-white text-xl">💬</span>
+                </div>
+                <h3 className="text-2xl font-bold text-white">
+                  Lihat Produk di Discord
+                </h3>
+              </div>
+
+              <div className="space-y-4">
+                <p className="text-gray-300 leading-relaxed mb-6">
+                  Bergabunglah dengan Discord server kami untuk melihat preview
+                  produk, mendapatkan update terbaru, dan berinteraksi dengan
+                  komunitas Cazera!
+                </p>
+
+                <div className="bg-gray-700 rounded-xl p-4 mb-6">
+                  <div className="flex items-center mb-3">
+                    <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center mr-3">
+                      <span className="text-white text-sm">📱</span>
+                    </div>
+                    <h4 className="text-white font-semibold">
+                      Keuntungan Join Discord:
+                    </h4>
+                  </div>
+                  <ul className="text-gray-300 text-sm space-y-2">
+                    <li>• Preview produk sebelum rilis</li>
+                    <li>• Update produk terbaru</li>
+                    <li>• Komunitas yang aktif</li>
+                    <li>• Support dan bantuan</li>
+                  </ul>
+                </div>
+
+                <a
+                  href="https://discord.gg/mK26qvZXSY"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-300 text-center flex items-center justify-center"
+                >
+                  <span className="mr-2">🚀</span>
+                  Join Discord Server
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -482,7 +660,7 @@ const Products = () => {
                     </div>
                   </div>
 
-                  <div className="pt-4">
+                  <div className="pt-4 space-y-3">
                     <a
                       href={previewModal.product?.robloxLink}
                       target="_blank"
@@ -491,6 +669,25 @@ const Products = () => {
                     >
                       Beli Sekarang di Roblox
                     </a>
+
+                    {/* Quick Info in Modal */}
+                    <div className="bg-gray-700/50 rounded-lg p-3">
+                      <div className="flex items-center justify-between text-xs text-gray-400 mb-2">
+                        <span>💡 Info:</span>
+                        <span>Scroll ke bawah untuk aturan lengkap</span>
+                      </div>
+                      <div className="flex items-center justify-between text-xs">
+                        <span className="text-blue-400">💬 Discord:</span>
+                        <a
+                          href="https://discord.gg/mK26qvZXSY"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-blue-400 hover:text-blue-300 transition-colors"
+                        >
+                          Join Server untuk Preview
+                        </a>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
