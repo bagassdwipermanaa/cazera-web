@@ -29,7 +29,16 @@ const Navbar = () => {
         >
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Link to="/" className="flex items-center">
+            <Link
+              to="/"
+              className={`flex items-center px-3 py-2 rounded-full transition-all duration-300 ${
+                location.pathname === "/"
+                  ? "bg-white"
+                  : isScrolled
+                  ? "hover:bg-white/20"
+                  : "hover:bg-white/10"
+              }`}
+            >
               <img
                 src={logoImage}
                 alt="Cazera Society"
