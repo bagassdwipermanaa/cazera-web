@@ -42,18 +42,6 @@ const Navbar = () => {
           <div className="hidden md:block">
             <div className="flex items-center space-x-6">
               <Link
-                to="/"
-                className={`px-3 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-                  location.pathname === "/"
-                    ? "bg-white text-gray-800"
-                    : isScrolled
-                    ? "text-white hover:bg-white/20"
-                    : "text-white hover:bg-white/10"
-                }`}
-              >
-                Home
-              </Link>
-              <Link
                 to="/about"
                 className={`px-3 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
                   location.pathname === "/about"
@@ -150,17 +138,6 @@ const Navbar = () => {
                   : "bg-black/20 backdrop-blur-sm"
               }`}
             >
-              <Link
-                to="/"
-                className={`block px-4 py-3 rounded-full transition-all duration-300 ${
-                  location.pathname === "/"
-                    ? "bg-white text-gray-800"
-                    : "text-white hover:bg-white/20"
-                }`}
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Home
-              </Link>
               <Link
                 to="/about"
                 className={`block px-4 py-3 rounded-full transition-all duration-300 ${
