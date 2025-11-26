@@ -314,7 +314,7 @@ const Products = () => {
                         <div className="flex items-center justify-between text-xs">
                           <span className="text-blue-400">💬 Discord:</span>
                           <a
-                            href="https://discord.gg/mK26qvZXSY"
+                            href="https://discord.gg/qWv7pwdZsn"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-blue-400 hover:text-blue-300 transition-colors"
@@ -475,7 +475,7 @@ const Products = () => {
                 </div>
 
                 <a
-                  href="https://discord.gg/mK26qvZXSY"
+                  href="https://discord.gg/qWv7pwdZsn"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-300 text-center flex items-center justify-center"
@@ -552,7 +552,7 @@ const Products = () => {
             }`}
           >
             <a
-              href="https://discord.gg/mK26qvZXSY"
+              href="https://discord.gg/qWv7pwdZsn"
               target="_blank"
               rel="noopener noreferrer"
               className="group px-8 py-4 rounded-full font-black text-lg transition-all duration-500 hover:scale-105 hover:shadow-xl relative overflow-hidden"
@@ -679,7 +679,7 @@ const Products = () => {
                       <div className="flex items-center justify-between text-xs">
                         <span className="text-blue-400">💬 Discord:</span>
                         <a
-                          href="https://discord.gg/mK26qvZXSY"
+                          href="https://discord.gg/qWv7pwdZsn"
                           target="_blank"
                           rel="noopener noreferrer"
                           className="text-blue-400 hover:text-blue-300 transition-colors"

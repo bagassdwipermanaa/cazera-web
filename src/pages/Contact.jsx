@@ -430,7 +430,7 @@ const Contact = () => {
                       Join Discord server kita
                     </p>
                     <a
-                      href="https://discord.gg/mK26qvZXSY"
+                      href="https://discord.gg/qWv7pwdZsn"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-orange-400 hover:text-orange-300 transition-colors duration-200"
