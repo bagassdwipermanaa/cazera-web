@@ -378,7 +378,7 @@ const Gallery = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="https://discord.gg/qWv7pwdZsn"
+                href="https://discord.gg/ERXrhAz8vk"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-all duration-200"

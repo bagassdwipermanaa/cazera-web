@@ -229,7 +229,7 @@ const Home = () => {
                 className="group inline-flex items-center px-6 py-3 rounded-full font-semibold text-base transition-all duration-500 hover:scale-105 hover:shadow-xl relative overflow-hidden"
                 style={{ backgroundColor: "#FF7E21", color: "#FFFFFF" }}
                 onClick={() =>
-                  window.open("https://discord.gg/qWv7pwdZsn", "_blank")
+                  window.open("https://discord.gg/ERXrhAz8vk", "_blank")
                 }
               >
                 <svg
@@ -501,7 +501,7 @@ const Home = () => {
             }`}
           >
             <a
-              href="https://discord.gg/qWv7pwdZsn"
+              href="https://discord.gg/ERXrhAz8vk"
               target="_blank"
               rel="noopener noreferrer"
               className="group px-8 py-4 rounded-full font-black text-lg transition-all duration-500 hover:scale-105 hover:shadow-xl relative overflow-hidden"
@@ -641,7 +641,7 @@ const Home = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <a
-                href="https://discord.gg/qWv7pwdZsn"
+                href="https://discord.gg/ERXrhAz8vk"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group px-8 py-4 rounded-full font-bold text-lg transition-all duration-500 hover:scale-105 hover:shadow-xl relative overflow-hidden"
@@ -733,7 +733,7 @@ const Home = () => {
                   lengkap!
                 </p>
                 <a
-                  href="https://discord.gg/qWv7pwdZsn"
+                  href="https://discord.gg/ERXrhAz8vk"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-block bg-white text-orange-500 px-6 py-3 rounded-full font-bold hover:bg-gray-100 transition-colors duration-300"
@@ -809,7 +809,7 @@ const Home = () => {
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <a
-                    href="https://discord.gg/qWv7pwdZsn"
+                    href="https://discord.gg/ERXrhAz8vk"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-block bg-white text-orange-500 px-6 py-3 rounded-full font-bold hover:bg-gray-100 transition-colors duration-300 text-center"
