@@ -173,8 +173,8 @@ const About = () => {
                   <div className="text-gray-300">Active Members</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-white mb-2">50+</div>
-                  <div className="text-gray-300">Proses Projects</div>
+                  <div className="text-3xl font-bold text-white mb-2">Proses</div>
+                  <div className="text-gray-300">Project Completed</div>
                 </div>
               </div>
             </div>
